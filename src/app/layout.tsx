@@ -8,7 +8,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>{children}</body>
+      <body className="overflow-hidden max-h-screen">
+        {children}
+      </body>
     </html>
   )
 }
