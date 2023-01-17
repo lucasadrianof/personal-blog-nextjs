@@ -1,7 +1,11 @@
+import Header from "./components/Header"
+
 export default function Home() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div id="main">
+      <div className="flex justify-center w-full top-0 py-3 sm:py-5 absolute">
+        <Header />
+      </div>
+    </div>
   )
 }
