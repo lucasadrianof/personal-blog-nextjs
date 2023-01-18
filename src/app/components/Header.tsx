@@ -1,7 +1,7 @@
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
-import Link from "next/link";
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Header() {
   return (
@@ -13,10 +13,18 @@ export default function Header() {
       </div>
       <nav>
         <ul className="pr-6 flex items-center text-white">
-          <li className="pl-6"><Link href="/about">About me</Link></li>
-          <li className="pl-6"><Link href="/about">Resume</Link></li>
-          <li className="pl-6"><Link href="/blog">Blog</Link></li>
-          <li className="pl-6"><Link href="/blog">Contact</Link></li>
+          <li className="pl-6">
+            <Link href="/about">About me</Link>
+          </li>
+          <li className="pl-6">
+            <Link href="/about">Resume</Link>
+          </li>
+          <li className="pl-6">
+            <Link href="/blog">Blog</Link>
+          </li>
+          <li className="pl-6">
+            <Link href="/blog">Contact</Link>
+          </li>
         </ul>
       </nav>
       <div className="block lg:hidden">
@@ -24,6 +32,6 @@ export default function Header() {
           <FontAwesomeIcon className="text-4xl text-black" icon={faBars} />
         </button>
       </div>
-    </div >
+    </div>
   )
 }
