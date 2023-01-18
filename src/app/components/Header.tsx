@@ -1,7 +1,26 @@
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { faAddressCard, faFile, faPaperPlane } from '@fortawesome/free-regular-svg-icons'
+import { faBars, faHouse, faRss } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Link from 'next/link'
+
+type MenuLinkProps = {
+  icon: IconProp
+  href: string
+  text: string
+}
+
+const MenuLink = ({ icon, href, text }: MenuLinkProps) => (
+  <li className="pl-6">
+    <Link className="pl-6" href={href} >
+      <span className="mr-2 text-xl">
+        <FontAwesomeIcon icon={icon} />
+      </span>
+      {text}
+    </Link >
+  </li>
+)
 
 export default function Header() {
   return (
@@ -13,18 +32,10 @@ export default function Header() {
       </div>
       <nav>
         <ul className="pr-6 flex items-center text-white">
-          <li className="pl-6">
-            <Link href="/about">About me</Link>
-          </li>
-          <li className="pl-6">
-            <Link href="/about">Resume</Link>
-          </li>
-          <li className="pl-6">
-            <Link href="/blog">Blog</Link>
-          </li>
-          <li className="pl-6">
-            <Link href="/blog">Contact</Link>
-          </li>
+          <MenuLink icon={faHouse} href="/about" text="About me" />
+          <MenuLink icon={faFile} href="/resume" text="Resume" />
+          <MenuLink icon={faRss} href="/blog" text="Blog" />
+          <MenuLink icon={faPaperPlane} href="/contact" text="Contact" />
         </ul>
       </nav>
       <div className="block lg:hidden">
