@@ -13,7 +13,7 @@ type MenuLinkProps = {
 
 const MenuLink = ({ icon, href, text }: MenuLinkProps) => (
   <li className="pl-6">
-    <Link className="px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]" href={href} >
+    <Link className="px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]" href={href} >
       <span className="mr-2 text-xl">
         <FontAwesomeIcon icon={icon} />
       </span>
