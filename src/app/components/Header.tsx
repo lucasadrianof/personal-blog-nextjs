@@ -1,13 +1,19 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+'use client'
+
+import cn from 'classnames'
 import {
-  faCircleUser,
+  faBars,
   faFile,
+  faCircleUser,
+  faHouse,
   faPaperPlane,
-} from '@fortawesome/free-regular-svg-icons'
-import { faBars, faHouse, faRss } from '@fortawesome/free-solid-svg-icons'
+  faBlog,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 type MenuLinkProps = {
   icon: IconProp
@@ -15,19 +21,28 @@ type MenuLinkProps = {
   text: string
 }
 
-const MenuLink = ({ icon, href, text }: MenuLinkProps) => (
-  <li className="pl-6">
-    <Link
-      className="px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]"
-      href={href}
-    >
-      <span className="mr-2 text-xl">
-        <FontAwesomeIcon icon={icon} />
-      </span>
-      {text}
-    </Link>
-  </li>
-)
+const isActiveLink = (menuPath: string, routePath: string | null) =>
+  menuPath?.replace(/\/\d+/, '') === routePath?.replace(/\/\d+/, '')
+
+const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
+  const currentPath = usePathname()
+  const classes =
+    'px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
+  const className = cn(classes, {
+    ['bg-gradient-to-r text-white']: isActiveLink(href, currentPath),
+  })
+
+  return (
+    <li className="pl-6">
+      <Link className={className} href={href}>
+        <span className="mr-2 text-xl">
+          <FontAwesomeIcon icon={icon} />
+        </span>
+        {text}
+      </Link>
+    </li>
+  )
+}
 
 export default function Header() {
   return (
@@ -42,7 +57,7 @@ export default function Header() {
           <MenuLink icon={faHouse} href="/" text="Home" />
           <MenuLink icon={faCircleUser} href="/about" text="About me" />
           <MenuLink icon={faFile} href="/resume" text="Resume" />
-          <MenuLink icon={faRss} href="/blog" text="Blog" />
+          <MenuLink icon={faBlog} href="/blog" text="Blog" />
           <MenuLink icon={faPaperPlane} href="/contact" text="Contact" />
         </ul>
       </nav>
