@@ -3,6 +3,7 @@
 import cn from 'classnames'
 import {
   faBars,
+  faClose,
   faFile,
   faCircleUser,
   faHouse,
@@ -14,6 +15,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 type MenuLinkProps = {
   icon: IconProp
@@ -45,15 +47,38 @@ const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
 }
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const toggleMenuOpen = () => setMenuOpen(!menuOpen)
+
   return (
-    <div className="container w-full h-24 flex items-center place-content-between">
-      <div className="pl-6">
-        <Link href="/">
-          <Image alt="logo" src="/logo.png" width={190} height={30} />
-        </Link>
+    <header className="container w-full h-24 flex items-center place-content-between">
+      <div className="flex grow justify-between items-center px-4">
+        <div>
+          <Link href="/">
+            <Image alt="logo" src="/logo.png" width={190} height={30} />
+          </Link>
+        </div>
+        <div className="flex items-center lg:hidden">
+          <button
+            className="w-12 h-12 bg-[#ef4060] rounded-full"
+            onClick={toggleMenuOpen}
+          >
+            <FontAwesomeIcon
+              className="text-3xl text-white"
+              icon={menuOpen ? faClose : faBars}
+            />
+          </button>
+        </div>
       </div>
-      <nav>
-        <ul className="pr-6 flex items-center text-white">
+      <nav className={`${menuOpen ? 'block bg-black' : 'hidden lg:block'}`}>
+        <ul
+          className={`${
+            menuOpen
+              ? 'block lg:hidden absolute left-0 rounded-b-[20px] top-20 z-[22222222222222] w-full bg-[#212425] drop-shadow-lg py-4 '
+              : 'flex'
+          }`}
+        >
           <MenuLink icon={faHouse} href="/" text="Home" />
           <MenuLink icon={faCircleUser} href="/about" text="About me" />
           <MenuLink icon={faFile} href="/resume" text="Resume" />
@@ -61,11 +86,6 @@ export default function Header() {
           <MenuLink icon={faPaperPlane} href="/contact" text="Contact" />
         </ul>
       </nav>
-      <div className="block lg:hidden">
-        <button className="w-5">
-          <FontAwesomeIcon className="text-4xl text-black" icon={faBars} />
-        </button>
-      </div>
-    </div>
+    </header>
   )
 }
