@@ -29,13 +29,13 @@ const isActiveLink = (menuPath: string, routePath: string | null) =>
 const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
   const currentPath = usePathname()
   const classes =
-    'px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
+    'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
   const className = cn(classes, {
     ['bg-gradient-to-r text-white']: isActiveLink(href, currentPath),
   })
 
   return (
-    <li className="pl-6">
+    <li className="px-2 xl:pl-5">
       <Link className={className} href={href}>
         <span className="mr-2 text-xl">
           <FontAwesomeIcon icon={icon} />
