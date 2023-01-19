@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        home: "url('/background.jpg')",
+      },
       container: {
         center: true,
       },
