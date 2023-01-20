@@ -52,7 +52,7 @@ export default function Header() {
   const toggleMenuOpen = () => setMenuOpen(!menuOpen)
 
   return (
-    <header className="container w-full h-24 flex items-center place-content-between">
+    <header className="container w-full h-24 flex items-center place-content-between bg-black lg:bg-transparent">
       <div className="flex grow justify-between items-center px-4">
         <div>
           <Link href="/">
@@ -75,7 +75,7 @@ export default function Header() {
         <ul
           className={`${
             menuOpen
-              ? 'block lg:hidden absolute left-0 rounded-b-[20px] top-20 z-[22222222222222] w-full bg-[#212425] drop-shadow-lg py-4 '
+              ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 '
               : 'flex'
           }`}
         >
