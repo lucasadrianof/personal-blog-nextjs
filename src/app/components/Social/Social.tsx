@@ -4,6 +4,7 @@ import {
   faGithub,
   faInstagram,
   faLinkedinIn,
+  faTwitch,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -28,6 +29,11 @@ const socialMedias: SocialMediaType[] = [
     href: 'https://github.com/lucasadrianof/',
     icon: faGithub,
     iconClass: 'text-white',
+  },
+  {
+    href: 'https://twitch.tv/the_branko',
+    icon: faTwitch,
+    iconClass: 'text-[#6441A4]',
   },
 ]
 
