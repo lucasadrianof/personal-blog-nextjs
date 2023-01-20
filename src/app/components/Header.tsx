@@ -38,7 +38,7 @@ const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
     <li className="px-2 xl:pl-5">
       <Link className={className} href={href}>
         <span className="mr-2 text-xl">
-          <FontAwesomeIcon icon={icon} />
+          <FontAwesomeIcon className="w-4" icon={icon} />
         </span>
         {text}
       </Link>
