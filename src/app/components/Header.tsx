@@ -3,6 +3,7 @@
 import cn from 'classnames'
 import {
   faBars,
+  faClose,
   faFile,
   faCircleUser,
   faHouse,
@@ -14,6 +15,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 type MenuLinkProps = {
   icon: IconProp
@@ -27,16 +29,16 @@ const isActiveLink = (menuPath: string, routePath: string | null) =>
 const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
   const currentPath = usePathname()
   const classes =
-    'px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
+    'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
   const className = cn(classes, {
     ['bg-gradient-to-r text-white']: isActiveLink(href, currentPath),
   })
 
   return (
-    <li className="pl-6">
+    <li className="px-2 xl:pl-5">
       <Link className={className} href={href}>
         <span className="mr-2 text-xl">
-          <FontAwesomeIcon icon={icon} />
+          <FontAwesomeIcon className="w-4" icon={icon} />
         </span>
         {text}
       </Link>
@@ -45,15 +47,38 @@ const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
 }
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const toggleMenuOpen = () => setMenuOpen(!menuOpen)
+
   return (
-    <div className="container w-full h-24 flex items-center place-content-between">
-      <div className="pl-6">
-        <Link href="/">
-          <Image alt="logo" src="/logo.png" width={190} height={30} />
-        </Link>
+    <header className="container w-full h-24 flex items-center place-content-between bg-black lg:bg-transparent">
+      <div className="flex grow justify-between items-center px-4">
+        <div>
+          <Link href="/">
+            <Image alt="logo" src="/logo.png" width={190} height={30} />
+          </Link>
+        </div>
+        <div className="flex items-center lg:hidden">
+          <button
+            className="w-12 h-12 bg-[#ef4060] rounded-full"
+            onClick={toggleMenuOpen}
+          >
+            <FontAwesomeIcon
+              className="text-3xl text-white"
+              icon={menuOpen ? faClose : faBars}
+            />
+          </button>
+        </div>
       </div>
-      <nav>
-        <ul className="pr-6 flex items-center text-white">
+      <nav className={`${menuOpen ? 'block bg-black' : 'hidden lg:block'}`}>
+        <ul
+          className={`${
+            menuOpen
+              ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 '
+              : 'flex'
+          }`}
+        >
           <MenuLink icon={faHouse} href="/" text="Home" />
           <MenuLink icon={faCircleUser} href="/about" text="About me" />
           <MenuLink icon={faFile} href="/resume" text="Resume" />
@@ -61,11 +86,6 @@ export default function Header() {
           <MenuLink icon={faPaperPlane} href="/contact" text="Contact" />
         </ul>
       </nav>
-      <div className="block lg:hidden">
-        <button className="w-5">
-          <FontAwesomeIcon className="text-4xl text-black" icon={faBars} />
-        </button>
-      </div>
-    </div>
+    </header>
   )
 }
