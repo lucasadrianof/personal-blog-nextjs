@@ -26,7 +26,7 @@ export default function Hero() {
         className="flex items-center bg-gradient-to-r from-[#FA5252] to-[#DD2476] duration-200 transition ease-linear hover:bg-gradient-to-l px-8 py-3 text-lg text-white rounded-[35px] mt-6"
       >
         <FontAwesomeIcon className="mr-2" icon={faDownload} />
-        Downlad CV
+        Download CV
       </a>
     </div>
   )
