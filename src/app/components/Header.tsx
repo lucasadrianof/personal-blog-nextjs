@@ -52,7 +52,7 @@ export default function Header() {
   const toggleMenuOpen = () => setMenuOpen(!menuOpen)
 
   return (
-    <header className="container w-full h-24 flex items-center place-content-between bg-black lg:bg-transparent">
+    <header className="lg:container w-full h-24 flex items-center place-content-between bg-black lg:bg-transparent">
       <div className="flex grow justify-between items-center px-4">
         <div>
           <Link href="/">
