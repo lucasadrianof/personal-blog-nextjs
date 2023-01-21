@@ -56,7 +56,13 @@ export default function Header() {
       <div className="flex grow justify-between items-center px-4">
         <div>
           <Link href="/">
-            <Image alt="logo" src="/logo.png" width={190} height={30} />
+            <Image
+              alt="logo"
+              className="h-5 w-auto"
+              src="/logo.png"
+              width={190}
+              height={30}
+            />
           </Link>
         </div>
         <div className="flex items-center lg:hidden">
