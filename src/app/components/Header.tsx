@@ -67,11 +67,11 @@ export default function Header() {
         </div>
         <div className="flex items-center lg:hidden">
           <button
-            className="w-12 h-12 bg-[#ef4060] rounded-full"
+            className="w-9 h-9 bg-[#ef4060] rounded-full"
             onClick={toggleMenuOpen}
           >
             <FontAwesomeIcon
-              className="text-3xl text-white"
+              className="text-2xl text-white"
               icon={menuOpen ? faClose : faBars}
             />
           </button>
