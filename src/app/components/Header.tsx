@@ -52,20 +52,26 @@ export default function Header() {
   const toggleMenuOpen = () => setMenuOpen(!menuOpen)
 
   return (
-    <header className="container w-full h-24 flex items-center place-content-between bg-black lg:bg-transparent">
+    <header className="lg:container w-full h-24 flex items-center place-content-between bg-black lg:bg-transparent">
       <div className="flex grow justify-between items-center px-4">
         <div>
           <Link href="/">
-            <Image alt="logo" src="/logo.png" width={190} height={30} />
+            <Image
+              alt="logo"
+              className="h-5 w-auto"
+              src="/logo.png"
+              width={190}
+              height={30}
+            />
           </Link>
         </div>
         <div className="flex items-center lg:hidden">
           <button
-            className="w-12 h-12 bg-[#ef4060] rounded-full"
+            className="w-9 h-9 bg-[#ef4060] rounded-full"
             onClick={toggleMenuOpen}
           >
             <FontAwesomeIcon
-              className="text-3xl text-white"
+              className="text-2xl text-white"
               icon={menuOpen ? faClose : faBars}
             />
           </button>
