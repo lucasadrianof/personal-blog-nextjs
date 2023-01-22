@@ -10,11 +10,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        title: 'title 5s linear infinite',
+      },
       backgroundImage: {
         home: "url('/background.jpg')",
       },
       container: {
         center: true,
+      },
+      keyframes: {
+        title: {
+          '0%': { content: `"Software Engineer"` },
+          '50%': { content: `"Problem Solver"` },
+          '100%': { content: `"Beer Enthusiast"` },
+        },
       },
       screens: {
         xs: '350px',

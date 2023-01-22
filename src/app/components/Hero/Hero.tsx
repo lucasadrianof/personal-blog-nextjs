@@ -17,7 +17,10 @@ export default function Hero() {
       <h3 className="mt-6 mb-1 text-3xl font-semibold text-white">
         Lucas Felicio Adriano
       </h3>
-      <p className="mb-4 text-[#7B7B7B]">Senior Software Engineer</p>
+      <p className="mb-4 color-white text-[#7B7B7B]">
+        Senior&nbsp;
+        <span className="after:animate-title" />
+      </p>
       <div className="flex space-x-3">
         <Social />
       </div>
