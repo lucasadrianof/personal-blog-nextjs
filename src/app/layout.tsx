@@ -1,5 +1,6 @@
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import Footer from './components/Footer/Footer'
 
 import Header from './components/Header'
 import './globals.css'
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body className="bg-cover bg-no-repeat bg-home overflow-hidden h-screen max-h-screen w-full">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
