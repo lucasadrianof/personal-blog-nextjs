@@ -52,7 +52,7 @@ const personalContent: PersonalContent[] = [
     icon: faGraduationCap,
     iconClass: 'text-purple-500',
     name: 'Graduation',
-    meta: 'Software Analysis and Development, UniCesumar',
+    meta: 'Software Analysis, UniCesumar',
   },
   {
     icon: faBuilding,
