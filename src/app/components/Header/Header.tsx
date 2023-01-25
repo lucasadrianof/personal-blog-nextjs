@@ -1,33 +1,23 @@
 'use client'
 
 import cn from 'classnames'
-import {
-  faBars,
-  faClose,
-  faFile,
-  faCircleUser,
-  faHouse,
-  faPaperPlane,
-  faBlog,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEventHandler, useState } from 'react'
 
-type MenuLinkProps = {
-  icon: IconProp
-  href: string
+import menuData, { MenuItem } from './data'
+
+interface MenuItemLink extends MenuItem {
   onClick: MouseEventHandler<HTMLAnchorElement>
-  text: string
 }
 
 const isActiveLink = (menuPath: string, routePath: string | null) =>
   menuPath?.replace(/\/\d+/, '') === routePath?.replace(/\/\d+/, '')
 
-const MenuLink = ({ icon, href, onClick, text }: MenuLinkProps) => {
+const MenuLink = ({ icon, href, onClick, text }: MenuItemLink) => {
   const currentPath = usePathname()
   const classes =
     'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
@@ -86,36 +76,15 @@ export default function Header() {
               : 'flex'
           }`}
         >
-          <MenuLink
-            icon={faHouse}
-            href="/"
-            text="Home"
-            onClick={toggleMenuOpen}
-          />
-          <MenuLink
-            icon={faCircleUser}
-            href="/about"
-            text="About me"
-            onClick={toggleMenuOpen}
-          />
-          <MenuLink
-            icon={faFile}
-            href="/resume"
-            text="Resume"
-            onClick={toggleMenuOpen}
-          />
-          <MenuLink
-            icon={faBlog}
-            href="/blog"
-            text="Blog"
-            onClick={toggleMenuOpen}
-          />
-          <MenuLink
-            icon={faPaperPlane}
-            href="/contact"
-            text="Contact"
-            onClick={toggleMenuOpen}
-          />
+          {menuData.map(({ href, icon, text }, index) => (
+            <MenuLink
+              key={index}
+              icon={icon}
+              href={href}
+              text={text}
+              onClick={toggleMenuOpen}
+            />
+          ))}
         </ul>
       </nav>
     </header>
