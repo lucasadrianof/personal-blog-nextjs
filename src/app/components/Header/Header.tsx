@@ -72,7 +72,7 @@ export default function Header() {
         <ul
           className={`${
             menuOpen
-              ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 '
+              ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 z-10 '
               : 'flex'
           }`}
         >
