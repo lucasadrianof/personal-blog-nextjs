@@ -1,32 +1,23 @@
 'use client'
 
 import cn from 'classnames'
-import {
-  faBars,
-  faClose,
-  faFile,
-  faCircleUser,
-  faHouse,
-  faPaperPlane,
-  faBlog,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { MouseEventHandler, useState } from 'react'
 
-type MenuLinkProps = {
-  icon: IconProp
-  href: string
-  text: string
+import menuData, { MenuItem } from './data'
+
+interface MenuItemLink extends MenuItem {
+  onClick: MouseEventHandler<HTMLAnchorElement>
 }
 
 const isActiveLink = (menuPath: string, routePath: string | null) =>
   menuPath?.replace(/\/\d+/, '') === routePath?.replace(/\/\d+/, '')
 
-const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
+const MenuLink = ({ icon, href, onClick, text }: MenuItemLink) => {
   const currentPath = usePathname()
   const classes =
     'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
@@ -36,7 +27,7 @@ const MenuLink = ({ icon, href, text }: MenuLinkProps) => {
 
   return (
     <li className="px-2 xl:pl-5">
-      <Link className={className} href={href}>
+      <Link className={className} href={href} onClick={onClick}>
         <span className="mr-2 text-xl">
           <FontAwesomeIcon className="w-4" icon={icon} />
         </span>
@@ -81,15 +72,19 @@ export default function Header() {
         <ul
           className={`${
             menuOpen
-              ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 '
+              ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 z-10 '
               : 'flex'
           }`}
         >
-          <MenuLink icon={faHouse} href="/" text="Home" />
-          <MenuLink icon={faCircleUser} href="/about" text="About me" />
-          <MenuLink icon={faFile} href="/resume" text="Resume" />
-          <MenuLink icon={faBlog} href="/blog" text="Blog" />
-          <MenuLink icon={faPaperPlane} href="/contact" text="Contact" />
+          {menuData.map(({ href, icon, text }, index) => (
+            <MenuLink
+              key={index}
+              icon={icon}
+              href={href}
+              text={text}
+              onClick={toggleMenuOpen}
+            />
+          ))}
         </ul>
       </nav>
     </header>
