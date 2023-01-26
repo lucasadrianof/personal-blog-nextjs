@@ -3,7 +3,7 @@ import PersonalInfo from '../PersonalInfo/PersonalInfo'
 
 export default function WhoAmI() {
   return (
-    <div className="grid grid-cols-12 md:gap-10 pt-4 items-center">
+    <div className="grid grid-cols-12 md:gap-10 md:pt-4 xs:pt-10 items-center">
       <div className="col-span-12 md:col-span-4">
         <Image
           className="w-full object-cover overflow-hidden rounded-3xl mb-3"
