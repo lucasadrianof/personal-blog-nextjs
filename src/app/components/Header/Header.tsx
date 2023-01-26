@@ -6,15 +6,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { MouseEventHandler, useEffect, useState } from 'react'
 
 import menuData, { MenuItem } from './data'
 import usePrevious from '@/app/hooks/usePrevious'
 
+interface MenuItemLink extends MenuItem {
+  onClick: MouseEventHandler<HTMLAnchorElement>
+}
+
 const isActiveLink = (menuPath: string, routePath: string | null) =>
   menuPath.replace(/\/\d+/, '') === routePath?.replace(/\/\d+/, '')
 
-const MenuLink = ({ icon, href, text }: MenuItem) => {
+const MenuLink = ({ icon, href, onClick, text }: MenuItemLink) => {
   const currentPath = usePathname()
   const classes =
     'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-[#212425] text-[#A6A6A6] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
@@ -24,7 +28,7 @@ const MenuLink = ({ icon, href, text }: MenuItem) => {
 
   return (
     <li className="px-2 xl:pl-5">
-      <Link className={className} href={href}>
+      <Link className={className} href={href} onClick={onClick}>
         <span className="mr-2 text-xl">
           <FontAwesomeIcon className="w-4" icon={icon} />
         </span>
@@ -83,7 +87,17 @@ export default function Header() {
           }`}
         >
           {menuData.map(({ href, icon, text }, index) => (
-            <MenuLink key={index} icon={icon} href={href} text={text} />
+            <MenuLink
+              key={index}
+              icon={icon}
+              href={href}
+              text={text}
+              onClick={() => {
+                if (href === currentPath && menuOpen) {
+                  setMenuOpen(false)
+                }
+              }}
+            />
           ))}
         </ul>
       </nav>
