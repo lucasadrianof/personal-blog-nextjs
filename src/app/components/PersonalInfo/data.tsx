@@ -16,7 +16,7 @@ type PersonalInfo = {
 const personalInfo: PersonalInfo[] = [
   {
     icon: faEnvelopeOpenText,
-    iconClass: 'text-yellow-500',
+    iconClass: 'text-orange-500',
     name: 'Email',
     meta: (
       <>
