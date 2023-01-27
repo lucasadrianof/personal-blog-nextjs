@@ -16,15 +16,15 @@ type PersonalInfo = {
 const personalInfo: PersonalInfo[] = [
   {
     icon: faEnvelopeOpenText,
-    iconClass: 'text-orange-500',
+    iconClass: 'text-[#ff4057]',
     name: 'Email',
     meta: (
       <>
         <a
           className="hover:text-[#FA5252] duration-300 transition"
-          href="mailto:lucas.f.adriano@hotmail.com"
+          href="mailto:hi@lucasfadriano.dev"
         >
-          lucas.f.adriano@hotmail.com
+          hi@lucasfadriano.dev
         </a>
       </>
     ),

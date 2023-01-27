@@ -11,7 +11,12 @@ export default function ContactBadges() {
           </span>
           <div className="space-y-2 pl-2 text-gray-400">
             <p className="text-xl font-semibold text-white">{title}:</p>
-            <a href={href}>{text}</a>
+            <a
+              className="hover:text-[#FA5252] duration-300 transition"
+              href={href}
+            >
+              {text}
+            </a>
           </div>
         </div>
       ))}
