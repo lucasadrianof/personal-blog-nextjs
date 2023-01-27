@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import ContactBadges from '../components/ContactBadges/ContactBadges'
 
 export default function About() {
@@ -12,10 +13,18 @@ export default function About() {
             <div className="flex flex-col space-y-6">
               <ContactBadges />
             </div>
-            <h2 className="self-center text-center text-white">
-              Thanks for wanting to reach out! You can contact me in any of the
-              social medias here.
-            </h2>
+            <div className="flex flex-col grow items-center justify-center">
+              <Image
+                alt="logo-transparent"
+                src="/logo-transparent.svg"
+                height={250}
+                width={250}
+              />
+              <h2 className="mt-4 px-4 self-center text-center text-white">
+                Thank you for wanting to talk to me! You can reach me out in any
+                of the social medias listed here.
+              </h2>
+            </div>
           </div>
         </div>
       </div>
