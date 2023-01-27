@@ -63,7 +63,7 @@ export default function Header() {
             <Image
               alt="logo"
               className="h-5 w-auto"
-              src="/logo.png"
+              src="/logo.svg"
               width={190}
               height={30}
             />
