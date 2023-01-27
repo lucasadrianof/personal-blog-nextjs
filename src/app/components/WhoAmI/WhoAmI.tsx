@@ -22,6 +22,11 @@ export default function WhoAmI() {
             Programming. I enjoy solving hard problems, learning new things and
             breaking things to see how they work.
           </p>
+          <p className="leading-7 text-gray-400 mt-2.5">
+            When working on a project I like to tackle different challenging
+            tasks, learning as much as I can while I go and trying to always
+            bring value and results to the partner.
+          </p>
         </div>
         <div>
           <h3 className="text-2xl font-medium text-white mb-2.5">
