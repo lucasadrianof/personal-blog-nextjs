@@ -25,15 +25,14 @@ const skills: Skill[] = [
   {
     icon: faCloud,
     iconColor: 'text-yellow-500',
-    description:
-      'AWS, GitHub Actions, Docker, Serverless, CI/CD, Terraform, Microservices',
+    description: 'AWS, GitHub Actions, Docker, Serverless, CI/CD, Terraform',
     title: 'DevOps',
   },
   {
     icon: faSitemap,
     iconColor: 'text-blue-500',
     description:
-      'System Design, Software Architecture, Design Patterns, Scaling, Caching',
+      'System Design, Software Architecture, Design Patterns, Microservices, Scaling, Caching',
     title: 'System Design',
   },
   {
