@@ -24,8 +24,8 @@ export default function About() {
               <h2 className="mt-4 px-4 self-center text-center text-white">
                 You can reach out to me through any of the social medias listed
                 here. Email is the preferable one since I check it more often,
-                but feel free to to say hi using the one you feel most
-                comfortable with :)
+                but feel free to say hi using the one you feel most comfortable
+                with :)
               </h2>
             </div>
           </div>

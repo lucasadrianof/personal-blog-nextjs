@@ -5,11 +5,11 @@ import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { MouseEventHandler, useEffect, useState } from 'react'
+import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 
 import menuData, { MenuItem } from './data'
-import usePrevious from '@/app/hooks/usePrevious'
 import Logo from '../Icons/Logo'
+import useClickOutside from '@/app/hooks/useClickOutside'
 
 interface MenuItemLink extends MenuItem {
   onClick: MouseEventHandler<HTMLAnchorElement>
@@ -44,16 +44,18 @@ const MenuLink = ({ icon, href, onClick, text }: MenuItemLink) => {
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const currentPath = usePathname()
-  const previousPath = usePrevious(currentPath)
+  const buttonRef = useRef(null)
+  const menuRef = useRef(null)
+  const clickedOutsideButton = useClickOutside(buttonRef)
+  const clickedOutsideMenu = useClickOutside(menuRef)
 
   const toggleMenuOpen = () => setMenuOpen(!menuOpen)
 
   useEffect(() => {
-    if (currentPath !== previousPath && menuOpen) {
+    if (menuOpen && clickedOutsideButton && clickedOutsideMenu) {
       setMenuOpen(false)
     }
-  }, [currentPath, previousPath, menuOpen])
+  }, [clickedOutsideButton, clickedOutsideMenu, menuOpen])
 
   return (
     <header className="lg:container w-full h-24 flex items-center place-content-between bg-black lg:bg-transparent">
@@ -67,6 +69,7 @@ export default function Header() {
           <button
             className="w-9 h-9 bg-[#ef4060] rounded-full"
             onClick={toggleMenuOpen}
+            ref={buttonRef}
           >
             <FontAwesomeIcon
               className="text-2xl text-white"
@@ -82,6 +85,7 @@ export default function Header() {
               ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 z-10 '
               : 'flex'
           }`}
+          ref={menuRef}
         >
           {menuData.map(({ href, icon, text }, index) => (
             <MenuLink
@@ -90,9 +94,7 @@ export default function Header() {
               href={href}
               text={text}
               onClick={() => {
-                if (href === currentPath && menuOpen) {
-                  setMenuOpen(false)
-                }
+                if (menuOpen) setMenuOpen(false)
               }}
             />
           ))}
