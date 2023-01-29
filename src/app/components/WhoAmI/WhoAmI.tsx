@@ -7,7 +7,7 @@ export default function WhoAmI() {
       <div className="col-span-12 md:col-span-4">
         <Image
           className="w-full object-cover overflow-hidden rounded-3xl mb-3"
-          src="/avatar.jpg"
+          src="/who-am-i.jpg"
           width={300}
           height={400}
           alt="avatar"
