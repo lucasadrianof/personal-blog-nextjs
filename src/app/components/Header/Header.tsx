@@ -3,13 +3,13 @@
 import cn from 'classnames'
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEventHandler, useEffect, useState } from 'react'
 
 import menuData, { MenuItem } from './data'
 import usePrevious from '@/app/hooks/usePrevious'
+import Logo from '../Icons/Logo'
 
 interface MenuItemLink extends MenuItem {
   onClick: MouseEventHandler<HTMLAnchorElement>
@@ -60,13 +60,7 @@ export default function Header() {
       <div className="flex grow justify-between items-center px-4">
         <div>
           <Link href="/">
-            <Image
-              alt="logo"
-              className="h-5 w-auto"
-              src="/logo.svg"
-              width={190}
-              height={30}
-            />
+            <Logo className="w-48 h-8" />
           </Link>
         </div>
         <div className="flex items-center lg:hidden">
