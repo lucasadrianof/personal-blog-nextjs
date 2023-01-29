@@ -60,7 +60,7 @@ const personalInfo: PersonalInfo[] = [
       <>
         <a
           className="hover:text-[#FA5252] duration-300 transition"
-          href="https://www.linkedin.com/in/x-team/"
+          href="https://www.linkedin.com/company/x-team/"
           rel="noreferrer"
           target="_blank"
         >
