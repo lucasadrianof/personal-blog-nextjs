@@ -15,14 +15,17 @@ export default function About() {
             </div>
             <div className="flex flex-col grow items-center justify-center">
               <Image
-                alt="logo-transparent"
-                src="/logo-transparent.svg"
-                height={250}
-                width={250}
+                alt="hello"
+                className="rounded-3xl"
+                src="/hello.jpg"
+                height={400}
+                width={400}
               />
               <h2 className="mt-4 px-4 self-center text-center text-white">
-                Thank you for wanting to talk to me! You can reach me out in any
-                of the social medias listed here.
+                You can reach out to me through any of the social medias listed
+                here. Email is the preferable one since I check it more often,
+                but feel free to to say hi using the one you feel most
+                comfortable with :)
               </h2>
             </div>
           </div>
