@@ -9,7 +9,7 @@ import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 
 import menuData, { MenuItem } from './data'
 import Logo from '../Icons/Logo'
-import useClickOutside from '@/app/hooks/useClickOutside'
+import useClickOutside from '@/hooks/useClickOutside'
 
 interface MenuItemLink extends MenuItem {
   onClick: MouseEventHandler<HTMLAnchorElement>
