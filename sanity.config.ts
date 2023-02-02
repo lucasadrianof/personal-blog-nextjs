@@ -12,6 +12,9 @@ import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 // import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 
+import authorSchema from '@/sanity/schemas/author'
+import postSchema from '@/sanity/schemas/post'
+
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
 
@@ -21,7 +24,7 @@ export default defineConfig({
   dataset,
   title,
   schema: {
-    types: [],
+    types: [authorSchema, postSchema],
   },
   plugins: [
     deskTool(),
