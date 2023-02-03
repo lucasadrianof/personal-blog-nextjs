@@ -9,16 +9,17 @@ import { Post } from '@/lib/sanity/types'
 
 import Date from './Date'
 
-interface PostPreviewProps extends Pick<Post, 'date' | 'slug' | 'title'> {
+interface PostNavigationLinkProps
+  extends Pick<Post, 'date' | 'slug' | 'title'> {
   type: 'Previous' | 'Next'
 }
 
-export default function PostPreview({
+export default function PostNavigationLink({
   date,
   slug,
   title,
   type,
-}: PostPreviewProps) {
+}: PostNavigationLinkProps) {
   return (
     <Link href={`/blog/${slug}`}>
       <div className="flex items-center">

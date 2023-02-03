@@ -4,13 +4,13 @@ import { createClient } from 'next-sanity'
 import { cache } from 'react'
 
 import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
-import {
-  indexQuery,
-  morePostsQuery,
-  postBySlugQuery,
-  postsSlugsQuery,
-} from './sanity.queries'
-import { Post } from './types'
+import { indexQuery, postBySlugQuery, postsSlugsQuery } from './sanity.queries'
+import type { Post } from './types'
+
+interface PostWithNavigation extends Post {
+  nextPost: Post
+  previousPost: Post
+}
 
 const client = createClient({ apiVersion, dataset, projectId, useCdn })
 
@@ -26,9 +26,6 @@ export const getAllPostsSlugs = cache(
 )
 
 export const getPostBySlug = cache(
-  (slug: string): Promise<Post> => client.fetch(postBySlugQuery, { slug })
-)
-
-export const getMorePosts = cache(
-  (slug: string): Promise<Post[]> => client.fetch(morePostsQuery, { slug })
+  (slug: string): Promise<PostWithNavigation> =>
+    client.fetch(postBySlugQuery, { slug })
 )

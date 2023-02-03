@@ -5,29 +5,38 @@ const postFields = groq`
   title,
   date,
   excerpt,
-  "slug": slug.current,
-  "author": author->{name, picture}
-  `
+  "slug": slug.current
+`
+
+const nextPostQuery = groq`
+*[_type == "post" && date > ^.date] | order(date asc) [0] {
+  ${postFields}
+}
+`
+
+const previousPostQuery = groq`
+*[_type == "post" && date < ^.date] | order(date desc) [0] {
+  ${postFields}
+}
+`
 
 export const indexQuery = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc) {
   ${postFields}
-}`
+}
+`
 
 export const postBySlugQuery = groq`
 *[_type == "post" && slug.current == $slug][0] {
   content,
   coverImage,
-  ${postFields}
+  ${postFields},
+  "author": author->{name, picture},
+  "nextPost": ${nextPostQuery},
+  "previousPost": ${previousPostQuery}
 }
 `
 
 export const postsSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
-`
-
-export const morePostsQuery = groq`
-*[_type == "post" && slug.current != $slug] | order(date asc, _updatedAt desc) [0...2] {
-  ${postFields}
-}
 `
