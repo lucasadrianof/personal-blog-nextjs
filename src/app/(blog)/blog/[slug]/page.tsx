@@ -21,8 +21,6 @@ export default async function Page({ params: { slug } }: PageProps) {
 
   if (!post) notFound()
 
-  console.log(JSON.stringify({ post, morePosts }, null, 4))
-
   return (
     <>
       <article>
