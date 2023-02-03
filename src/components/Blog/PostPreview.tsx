@@ -13,7 +13,10 @@ export default function PostPreview({
   title,
 }: PostPreviewProps) {
   return (
-    <Link className="text-white" href={`/blog/${slug}`}>
+    <Link
+      className="bg-[#212425] text-white rounded-xl p-4"
+      href={`/blog/${slug}`}
+    >
       <div className="flex flex-col">
         <Date className="text-sm" dateString={date} />
         <span className="text-xl">{title}</span>
