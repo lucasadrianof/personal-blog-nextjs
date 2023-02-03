@@ -4,11 +4,7 @@ import Body from '@/components/Blog/Body'
 import Header from '@/components/Blog/Header'
 import MorePosts from '@/components/Blog/MorePosts'
 import SectionSeparator from '@/components/Blog/SectionSeparator'
-import {
-  getAllPostsSlugs,
-  getMorePosts,
-  getPostBySlug,
-} from '@/lib/sanity/sanity.client'
+import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
 import type { Post } from '@/lib/sanity/types'
 
 type PageProps = {
@@ -16,8 +12,7 @@ type PageProps = {
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
-  const post = await getPostBySlug(slug)
-  const morePosts = await getMorePosts(slug)
+  const { nextPost, previousPost, ...post } = await getPostBySlug(slug)
 
   if (!post) notFound()
 
@@ -34,7 +29,7 @@ export default async function Page({ params: { slug } }: PageProps) {
         <Body content={post.content} />
       </article>
       <SectionSeparator />
-      {morePosts.length > 0 && <MorePosts posts={morePosts} />}
+      <MorePosts previousPost={previousPost} nextPost={nextPost} />
     </>
   )
 }

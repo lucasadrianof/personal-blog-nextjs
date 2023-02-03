@@ -1,38 +1,26 @@
-import {
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 
 import { Post } from '@/lib/sanity/types'
 
 import Date from './Date'
 
-interface PostPreviewProps extends Pick<Post, 'date' | 'slug' | 'title'> {
-  type: 'Previous' | 'Next'
-}
+type PostPreviewProps = Pick<Post, 'date' | 'excerpt' | 'slug' | 'title'>
 
 export default function PostPreview({
   date,
+  excerpt,
   slug,
   title,
-  type,
 }: PostPreviewProps) {
   return (
-    <Link href={`/blog/${slug}`}>
-      <div className="flex items-center">
-        {type === 'Previous' && (
-          <FontAwesomeIcon className="text-white mr-2" icon={faChevronLeft} />
-        )}
-        <div className="flex flex-col">
-          <span className="text-gray-400 text-sm">{type} Post</span>
-          <span className="font-bold text-lg text-white">{title}</span>
-          <Date className="text-xs" dateString={date} />
-        </div>
-        {type === 'Next' && (
-          <FontAwesomeIcon className="text-white ml-2" icon={faChevronRight} />
-        )}
+    <Link
+      className="bg-[#212425] text-white rounded-xl p-4"
+      href={`/blog/${slug}`}
+    >
+      <div className="flex flex-col">
+        <Date className="text-sm" dateString={date} />
+        <span className="text-xl">{title}</span>
+        <span>{excerpt}</span>
       </div>
     </Link>
   )
