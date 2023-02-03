@@ -1,6 +1,6 @@
 import type { Post } from '@/lib/sanity/types'
 
-import PostPreview from './PostPreview'
+import PostNavigationLink from './PostNavigationLink'
 
 interface MorePostsProps {
   posts: Post[]
@@ -11,7 +11,7 @@ export default function MorePosts({ posts }: MorePostsProps) {
     <section>
       <div className="pb-8 flex justify-between">
         {posts.map(({ date, slug, title }, index) => (
-          <PostPreview
+          <PostNavigationLink
             key={slug}
             date={date}
             slug={slug}
