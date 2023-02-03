@@ -1,12 +1,10 @@
 import type { Post } from '@/lib/sanity/types'
 import CoverImage from './CoverImage'
+import Date from './Date'
 
-export default function PostHeader({
-  coverImage,
-  date,
-  slug,
-  title,
-}: Pick<Post, 'coverImage' | 'date' | 'slug' | 'title'>) {
+type HeaderProps = Pick<Post, 'coverImage' | 'date' | 'slug' | 'title'>
+
+export default function Header({ coverImage, date, slug, title }: HeaderProps) {
   return (
     <>
       <h1 className="after-effect after:left-52 mt-12 xs:mt-6 lg:mt-0">
@@ -19,6 +17,9 @@ export default function PostHeader({
           title={title}
           priority
         />
+      </div>
+      <div className="mx-auto max-w-2xl">
+        <Date dateString={date} />
       </div>
     </>
   )

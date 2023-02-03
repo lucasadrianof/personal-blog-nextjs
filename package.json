@@ -19,6 +19,7 @@
     "@next/font": "13.1.2",
     "@sanity/vision": "^3.2.6",
     "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
     "next": "13.1.2",
     "next-sanity": "^4.1.2",
     "react": "18.2.0",
