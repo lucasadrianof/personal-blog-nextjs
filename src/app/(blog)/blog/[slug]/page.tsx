@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation'
 
-import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
+import type { Post } from '@/lib/sanity/types'
+
+import Body from '@/components/Blog/Body'
 import Header from '@/components/Blog/Header'
-import { Post } from '@/lib/sanity/types'
+import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
 
 type PageProps = {
   params: Pick<Post, 'slug'>
@@ -18,7 +20,13 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <article>
-        <Header {...post} />
+        <Header
+          coverImage={post.coverImage}
+          date={post.date}
+          slug={post.slug}
+          title={post.title}
+        />
+        <Body content={post.content} />
       </article>
     </>
   )

@@ -1,4 +1,4 @@
-import { Image } from 'sanity'
+import type { Image, PortableTextTextBlock } from 'sanity'
 
 export interface Author {
   name: string
@@ -8,10 +8,10 @@ export interface Author {
 export interface Post {
   _id: string
   title: string
+  content: PortableTextTextBlock[]
   coverImage: Image
   date: string
   excerpt: string
   author: Author
   slug: string
-  content: string
 }
