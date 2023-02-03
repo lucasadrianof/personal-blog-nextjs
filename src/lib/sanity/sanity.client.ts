@@ -4,7 +4,11 @@ import { createClient } from 'next-sanity'
 import { cache } from 'react'
 
 import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
-import { postBySlugQuery, postsSlugsQuery } from './sanity.queries'
+import {
+  morePostsQuery,
+  postBySlugQuery,
+  postsSlugsQuery,
+} from './sanity.queries'
 import { Post } from './types'
 
 const client = createClient({ apiVersion, dataset, projectId, useCdn })
@@ -18,4 +22,8 @@ export const getAllPostsSlugs = cache(
 
 export const getPostBySlug = cache(
   (slug: string): Promise<Post> => client.fetch(postBySlugQuery, { slug })
+)
+
+export const getMorePosts = cache(
+  (slug: string): Promise<Post[]> => client.fetch(morePostsQuery, { slug })
 )
