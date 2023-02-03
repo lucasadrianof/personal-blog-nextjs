@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation'
 
-import type { Post } from '@/lib/sanity/types'
-
 import Body from '@/components/Blog/Body'
 import Header from '@/components/Blog/Header'
 import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
+import type { Post } from '@/lib/sanity/types'
 
 type PageProps = {
   params: Pick<Post, 'slug'>

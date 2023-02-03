@@ -1,4 +1,5 @@
 import type { Post } from '@/lib/sanity/types'
+
 import CoverImage from './CoverImage'
 import Date from './Date'
 

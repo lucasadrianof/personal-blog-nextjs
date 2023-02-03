@@ -1,9 +1,10 @@
-import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import Footer from '../../components/Footer/Footer'
-
-import Header from '../../components/Header/Header'
 import './globals.css'
+
+import { config } from '@fortawesome/fontawesome-svg-core'
+
+import Footer from '../../components/Footer/Footer'
+import Header from '../../components/Header/Header'
 
 config.autoAddCss = false
 

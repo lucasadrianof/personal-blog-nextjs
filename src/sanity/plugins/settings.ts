@@ -1,4 +1,4 @@
-import { type DocumentDefinition, definePlugin } from 'sanity'
+import { definePlugin, type DocumentDefinition } from 'sanity'
 import { type StructureResolver } from 'sanity/desk'
 
 export const settingsPlugin = definePlugin<{ type: string }>(({ type }) => {

@@ -1,7 +1,8 @@
-import { urlForImage } from '@/lib/sanity/sanity.image'
-import { Post } from '@/lib/sanity/types'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { urlForImage } from '@/lib/sanity/sanity.image'
+import { Post } from '@/lib/sanity/types'
 
 interface CoverImageProps extends Pick<Post, 'coverImage' | 'slug' | 'title'> {
   priority: boolean

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import PersonalInfo from '../PersonalInfo/PersonalInfo'
 
 export default function WhoAmI() {

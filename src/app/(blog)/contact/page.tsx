@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import ContactBadges from '../../../components/ContactBadges/ContactBadges'
 
 export default function About() {

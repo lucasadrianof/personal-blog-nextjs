@@ -1,7 +1,7 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
-import type { Post } from '@/lib/sanity/types'
 import ImageComponent from '@/components/PortableText/Components/ImageComponent'
+import type { Post } from '@/lib/sanity/types'
 
 type BodyProps = Pick<Post, 'content'>
 

@@ -1,5 +1,5 @@
-import cn from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import cn from 'classnames'
 
 import skills from './data'
 

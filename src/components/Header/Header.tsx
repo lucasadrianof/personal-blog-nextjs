@@ -1,15 +1,16 @@
 'use client'
 
-import cn from 'classnames'
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import cn from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 
-import menuData, { MenuItem } from './data'
-import Logo from '../Icons/Logo'
 import useClickOutside from '@/hooks/useClickOutside'
+
+import Logo from '../Icons/Logo'
+import menuData, { MenuItem } from './data'
 
 interface MenuItemLink extends MenuItem {
   onClick: MouseEventHandler<HTMLAnchorElement>

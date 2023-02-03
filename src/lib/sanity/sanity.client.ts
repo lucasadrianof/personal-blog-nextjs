@@ -1,10 +1,10 @@
 import 'server-only'
 
-import { cache } from 'react'
 import { createClient } from 'next-sanity'
-import { postBySlugQuery, postsSlugsQuery } from './sanity.queries'
+import { cache } from 'react'
 
 import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
+import { postBySlugQuery, postsSlugsQuery } from './sanity.queries'
 import { Post } from './types'
 
 const client = createClient({ apiVersion, dataset, projectId, useCdn })
