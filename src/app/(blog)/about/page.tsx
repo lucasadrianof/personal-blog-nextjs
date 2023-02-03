@@ -1,5 +1,5 @@
-import Skills from '../components/Skills/Skills'
-import WhoAmI from '../components/WhoAmI/WhoAmI'
+import Skills from '../../../components/Skills/Skills'
+import WhoAmI from '../../../components/WhoAmI/WhoAmI'
 
 export default function About() {
   return (

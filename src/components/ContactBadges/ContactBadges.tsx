@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import contactTypes from './data'
 
 export default function ContactBadges() {
