@@ -20,6 +20,7 @@ export default async function Page({ params }: PageProps) {
     <>
       <article>
         <Header
+          author={post.author}
           coverImage={post.coverImage}
           date={post.date}
           slug={post.slug}
