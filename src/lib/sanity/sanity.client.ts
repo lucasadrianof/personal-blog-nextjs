@@ -5,6 +5,7 @@ import { cache } from 'react'
 
 import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
 import {
+  indexQuery,
   morePostsQuery,
   postBySlugQuery,
   postsSlugsQuery,
@@ -12,6 +13,10 @@ import {
 import { Post } from './types'
 
 const client = createClient({ apiVersion, dataset, projectId, useCdn })
+
+export const getAllPosts = cache(
+  (): Promise<Post[]> => client.fetch(indexQuery)
+)
 
 export const getAllPostsSlugs = cache(
   async (): Promise<Pick<Post, 'slug'>[]> => {

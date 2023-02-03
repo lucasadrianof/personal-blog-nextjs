@@ -5,10 +5,14 @@ const postFields = groq`
   title,
   date,
   excerpt,
-  coverImage,
   "slug": slug.current,
   "author": author->{name, picture}
   `
+
+export const indexQuery = groq`
+*[_type == "post"] | order(date desc, _updatedAt desc) {
+  ${postFields}
+}`
 
 export const postBySlugQuery = groq`
 *[_type == "post" && slug.current == $slug][0] {
