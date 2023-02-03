@@ -3,6 +3,7 @@ import { groq } from 'next-sanity'
 const postFields = groq`
   _id,
   title,
+  content,
   date,
   excerpt,
   coverImage,

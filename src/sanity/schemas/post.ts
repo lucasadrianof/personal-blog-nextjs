@@ -31,7 +31,7 @@ export default defineType({
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{ type: 'block' }, { type: 'image' }],
     }),
     defineField({
       name: 'excerpt',

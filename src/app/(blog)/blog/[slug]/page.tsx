@@ -1,6 +1,8 @@
-import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
-import { Post } from '@/lib/sanity/types'
 import { notFound } from 'next/navigation'
+
+import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
+import Header from '@/components/Blog/Header'
+import { Post } from '@/lib/sanity/types'
 
 type PageProps = {
   params: Pick<Post, 'slug'>
@@ -11,7 +13,15 @@ export default async function Page({ params }: PageProps) {
 
   if (!post) notFound()
 
-  return <div className="text-white">Hi {post.slug}</div>
+  console.log(JSON.stringify(post, null, 4))
+
+  return (
+    <>
+      <article>
+        <Header {...post} />
+      </article>
+    </>
+  )
 }
 
 export async function generateStaticParams() {
