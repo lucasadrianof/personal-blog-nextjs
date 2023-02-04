@@ -3,9 +3,13 @@ import 'server-only'
 import { createClient } from 'next-sanity'
 import { cache } from 'react'
 
-import { apiVersion, dataset, projectId, useCdn } from './sanity.api'
-import { indexQuery, postBySlugQuery, postsSlugsQuery } from './sanity.queries'
-import type { Post } from './types'
+import { apiVersion, dataset, projectId, useCdn } from '@/lib/sanity/sanity.api'
+import {
+  indexQuery,
+  postBySlugQuery,
+  postsSlugsQuery,
+} from '@/lib/sanity/sanity.queries'
+import type { Post } from '@/lib/sanity/types'
 
 interface PostWithNavigation extends Post {
   nextPost: Post

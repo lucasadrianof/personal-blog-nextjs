@@ -5,9 +5,8 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 
+import Date from '@/components/Blog/Date'
 import { Post } from '@/lib/sanity/types'
-
-import Date from './Date'
 
 interface PostNavigationLinkProps
   extends Pick<Post, 'date' | 'slug' | 'title'> {

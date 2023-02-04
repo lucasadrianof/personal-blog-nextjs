@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import personalInfo from './data'
+import personalInfo from '@/components/PersonalInfo/data'
 
 export default function PersonalInfo() {
   return (

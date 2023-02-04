@@ -1,8 +1,7 @@
+import AuthorAvatar from '@/components/Blog/AuthorAvatar'
+import CoverImage from '@/components/Blog/CoverImage'
+import Date from '@/components/Blog/Date'
 import type { Post } from '@/lib/sanity/types'
-
-import AuthorAvatar from './AuthorAvatar'
-import CoverImage from './CoverImage'
-import Date from './Date'
 
 type HeaderProps = Pick<
   Post,
@@ -25,14 +24,16 @@ export default function Header({
       <div className="hidden md:mb-12 md:block">
         <AuthorAvatar {...author} />
       </div>
-      <div className="mb-8 sm:mx-0 md:mb-16">
-        <CoverImage
-          coverImage={coverImage}
-          slug={slug}
-          title={title}
-          priority
-        />
-      </div>
+      {coverImage && (
+        <div className="mb-8 sm:mx-0 md:mb-16">
+          <CoverImage
+            coverImage={coverImage}
+            slug={slug}
+            title={title}
+            priority
+          />
+        </div>
+      )}
       <div className="mx-auto max-w-2xl">
         <div className="mb-6 block md:hidden">
           <AuthorAvatar {...author} />

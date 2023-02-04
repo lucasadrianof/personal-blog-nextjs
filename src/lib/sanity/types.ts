@@ -10,7 +10,7 @@ export interface Post {
   author: Author
   date: string
   content: PortableTextTextBlock[]
-  coverImage: Image
+  coverImage?: Image
   excerpt: string
   slug: string
   title: string
