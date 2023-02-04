@@ -24,6 +24,7 @@ const components: PortableTextComponents = {
 }
 
 export default function Body({ content }: BodyProps) {
+  console.log(JSON.stringify(content, null, 4))
   return (
     <div className="mx-auto max-w-2xl">
       <PortableText components={components} value={content} />
