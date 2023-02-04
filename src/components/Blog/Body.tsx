@@ -1,14 +1,22 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
-import { H4Header } from '@/components/PortableText/Components/Header'
-import ImageComponent from '@/components/PortableText/Components/ImageComponent'
+import {
+  CodeMark,
+  H4Header,
+  ImageComponent,
+  Paragraph,
+} from '@/components/PortableText/Components'
 import type { Post } from '@/lib/sanity/types'
 
 type BodyProps = Pick<Post, 'content'>
 
 const components: PortableTextComponents = {
   block: {
+    normal: Paragraph,
     h4: H4Header,
+  },
+  marks: {
+    code: CodeMark,
   },
   types: {
     image: ImageComponent,
