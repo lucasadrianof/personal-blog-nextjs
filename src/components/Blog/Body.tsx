@@ -5,6 +5,7 @@ import {
   H4Header,
   H5Header,
   ImageComponent,
+  LinkMark,
   Paragraph,
 } from '@/components/PortableText/Components'
 import type { Post } from '@/lib/sanity/types'
@@ -19,6 +20,7 @@ const components: PortableTextComponents = {
   },
   marks: {
     code: CodeMark,
+    link: LinkMark,
   },
   types: {
     image: ImageComponent,
@@ -26,7 +28,6 @@ const components: PortableTextComponents = {
 }
 
 export default function Body({ content }: BodyProps) {
-  console.log(JSON.stringify(content, null, 4))
   return (
     <div className="mx-auto max-w-2xl">
       <PortableText components={components} value={content} />
