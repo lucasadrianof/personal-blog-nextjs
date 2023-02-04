@@ -28,3 +28,7 @@ const Header =
 export const H4Header = Header(({ children, className }) => (
   <h4 className={`${className} font-bold`}>{children}</h4>
 ))
+
+export const H5Header = Header(({ children, className }) => (
+  <h5 className={`${className} font-semibold`}>{children}</h5>
+))

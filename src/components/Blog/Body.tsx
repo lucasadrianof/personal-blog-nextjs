@@ -3,6 +3,7 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import {
   CodeMark,
   H4Header,
+  H5Header,
   ImageComponent,
   Paragraph,
 } from '@/components/PortableText/Components'
@@ -14,6 +15,7 @@ const components: PortableTextComponents = {
   block: {
     normal: Paragraph,
     h4: H4Header,
+    h5: H5Header,
   },
   marks: {
     code: CodeMark,
