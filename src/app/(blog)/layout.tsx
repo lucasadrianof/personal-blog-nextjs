@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="bg-cover bg-no-repeat bg-center bg-home h-full max-h-full w-full">
+      <body className="bg-cover bg-no-repeat bg-center bg-home flex flex-col h-screen max-h-screen w-full">
         <Header />
         {children}
         <Footer />
