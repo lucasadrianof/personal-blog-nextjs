@@ -1,7 +1,7 @@
 import createImageBuilder from '@sanity/image-url'
 import { Image } from 'sanity'
 
-import { dataset, projectId } from './sanity.api'
+import { dataset, projectId } from '@/lib/sanity/sanity.api'
 
 const imageBuilder = createImageBuilder({ dataset, projectId })
 

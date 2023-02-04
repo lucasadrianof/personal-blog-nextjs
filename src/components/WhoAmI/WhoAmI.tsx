@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import PersonalInfo from '../PersonalInfo/PersonalInfo'
+import PersonalInfo from '@/components/PersonalInfo/PersonalInfo'
 
 export default function WhoAmI() {
   return (

@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Image as ImageType } from 'sanity'
 
 import { urlForImage } from '@/lib/sanity/sanity.image'
 import { Post } from '@/lib/sanity/types'
 
-interface CoverImageProps extends Pick<Post, 'coverImage' | 'slug' | 'title'> {
+interface CoverImageProps extends Pick<Post, 'slug' | 'title'> {
+  coverImage: ImageType
   priority: boolean
 }
 

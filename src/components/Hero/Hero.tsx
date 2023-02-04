@@ -2,7 +2,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 
-import Social from '../Social/Social'
+import Social from '@/components/Social/Social'
 
 export default function Hero() {
   return (

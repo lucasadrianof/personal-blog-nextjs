@@ -1,8 +1,7 @@
 import Link from 'next/link'
 
+import Date from '@/components/Blog/Date'
 import { Post } from '@/lib/sanity/types'
-
-import Date from './Date'
 
 type PostPreviewProps = Pick<Post, 'date' | 'excerpt' | 'slug' | 'title'>
 

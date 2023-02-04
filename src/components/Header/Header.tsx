@@ -7,10 +7,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEventHandler, useEffect, useRef, useState } from 'react'
 
+import menuData, { MenuItem } from '@/components/Header/data'
+import Logo from '@/components/Icons/Logo'
 import useClickOutside from '@/hooks/useClickOutside'
-
-import Logo from '../Icons/Logo'
-import menuData, { MenuItem } from './data'
 
 interface MenuItemLink extends MenuItem {
   onClick: MouseEventHandler<HTMLAnchorElement>
