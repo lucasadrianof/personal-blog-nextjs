@@ -67,6 +67,7 @@ export default function Header() {
         </div>
         <div className="flex items-center lg:hidden">
           <button
+            aria-label="Menu Button"
             className="w-9 h-9 bg-[#ef4060] rounded-full"
             onClick={toggleMenuOpen}
             ref={buttonRef}
