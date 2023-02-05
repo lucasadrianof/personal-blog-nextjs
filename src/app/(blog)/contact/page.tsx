@@ -18,7 +18,7 @@ export default function About() {
               <Image
                 alt="hello"
                 className="rounded-3xl"
-                src="/hello.jpg"
+                src="/hello.webp"
                 height={400}
                 width={400}
               />
