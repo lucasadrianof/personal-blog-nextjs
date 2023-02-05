@@ -16,11 +16,11 @@ export default function About() {
             </div>
             <div className="flex flex-col grow items-center justify-center">
               <Image
-                alt="hello"
+                alt="Contact Person"
                 className="rounded-3xl"
-                src="/hello.webp"
-                height={400}
-                width={400}
+                src="/contact-person.png"
+                height={500}
+                width={500}
               />
               <h2 className="mt-4 px-4 self-center text-center text-white">
                 You can reach out to me through any of the social medias listed
