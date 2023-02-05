@@ -16,6 +16,9 @@ module.exports = {
       backgroundImage: {
         home: "url('/background.webp')",
       },
+      backgroundPosition: {
+        'center-center': 'center-center',
+      },
       container: {
         center: true,
       },
