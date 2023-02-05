@@ -14,7 +14,10 @@ module.exports = {
         title: 'title 5s linear infinite',
       },
       backgroundImage: {
-        home: "url('/background.jpg')",
+        home: "url('/background.webp')",
+      },
+      backgroundPosition: {
+        'center-center': 'center-center',
       },
       container: {
         center: true,

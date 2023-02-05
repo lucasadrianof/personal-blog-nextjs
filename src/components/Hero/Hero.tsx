@@ -10,7 +10,7 @@ export default function Hero() {
       <Image
         alt="avatar"
         className="object-cover rounded-full h-60 w-60"
-        src="/avatar.jpg"
+        src="/avatar.webp"
         height={250}
         width={250}
       />
