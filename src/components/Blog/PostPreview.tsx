@@ -1,16 +1,18 @@
 import Link from 'next/link'
 
 import Date from '@/components/Blog/Date'
+import Tags from '@/components/Blog/Tags'
 import { Post } from '@/lib/sanity/types'
 
-type PostPreviewProps = Pick<Post, 'date' | 'excerpt' | 'slug' | 'title'>
+type PostPreviewProps = Pick<Post, 'date' | 'slug' | 'tags' | 'title'>
 
 export default function PostPreview({
   date,
-  excerpt,
   slug,
+  tags,
   title,
 }: PostPreviewProps) {
+  console.log({ tags })
   return (
     <Link
       className="bg-[#212425] text-white rounded-xl p-4"
@@ -19,7 +21,7 @@ export default function PostPreview({
       <div className="flex flex-col">
         <Date className="text-sm" dateString={date} />
         <span className="text-xl">{title}</span>
-        <span>{excerpt}</span>
+        {tags && <Tags tags={tags} />}
       </div>
     </Link>
   )
