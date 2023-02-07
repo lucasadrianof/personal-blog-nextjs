@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
@@ -18,6 +18,11 @@ module.exports = {
       },
       backgroundPosition: {
         'center-center': 'center-center',
+      },
+      colors: {
+        'brand-background': '#282634',
+        'brand-background-element': '#ff4057',
+        'brand-slogan': '#DCDCDC',
       },
       container: {
         center: true,

@@ -26,7 +26,7 @@ const MenuLink = ({ icon, href, onClick, text }: MenuItemLink) => {
     'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-[#212425] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
   const className = cn(classes, {
     'bg-gradient-to-r text-white': activeLink,
-    'text-[#A6A6A6]': !activeLink,
+    'text-gray-400': !activeLink,
   })
 
   return (
@@ -68,7 +68,7 @@ export default function Header() {
         <div className="flex items-center lg:hidden">
           <button
             aria-label="Menu Button"
-            className="w-9 h-9 bg-[#ef4060] rounded-full"
+            className="w-9 h-9 bg-brand-background-element rounded-full"
             onClick={toggleMenuOpen}
             ref={buttonRef}
           >
