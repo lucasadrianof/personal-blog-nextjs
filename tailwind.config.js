@@ -23,6 +23,9 @@ module.exports = {
         'brand-background': '#282634',
         'brand-background-element': '#ff4057',
         'brand-slogan': '#DCDCDC',
+        gray: {
+          850: '#212425',
+        },
       },
       container: {
         center: true,
