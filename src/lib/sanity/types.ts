@@ -11,7 +11,7 @@ export interface Post {
   date: string
   content: PortableTextTextBlock[]
   coverImage?: Image
-  excerpt: string
   slug: string
+  tags?: string[]
   title: string
 }
