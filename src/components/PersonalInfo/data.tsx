@@ -16,12 +16,12 @@ type PersonalInfo = {
 const personalInfo: PersonalInfo[] = [
   {
     icon: faEnvelopeOpenText,
-    iconClass: 'text-[#ff4057]',
+    iconClass: 'text-brand-background-element',
     name: 'Email',
     meta: (
       <>
         <a
-          className="hover:text-[#FA5252] duration-300 transition"
+          className="hover:text-brand-background-element duration-300 transition"
           href="mailto:hi@lucasfadriano.dev"
         >
           hi@lucasfadriano.dev
@@ -31,12 +31,12 @@ const personalInfo: PersonalInfo[] = [
   },
   {
     icon: faLinkedinIn,
-    iconClass: 'text-[#0072b1]',
+    iconClass: 'text-linkedIn',
     name: 'LinkedIn',
     meta: (
       <>
         <a
-          className="hover:text-[#FA5252] duration-300 transition"
+          className="hover:text-brand-background-element duration-300 transition"
           href="https://www.linkedin.com/in/lucas-felicio-adriano/"
           rel="noreferrer"
           target="_blank"
@@ -59,7 +59,7 @@ const personalInfo: PersonalInfo[] = [
     meta: (
       <>
         <a
-          className="hover:text-[#FA5252] duration-300 transition"
+          className="hover:text-brand-background-element duration-300 transition"
           href="https://www.linkedin.com/company/x-team/"
           rel="noreferrer"
           target="_blank"

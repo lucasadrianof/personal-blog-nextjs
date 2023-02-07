@@ -27,6 +27,9 @@ module.exports = {
           850: '#212425',
           950: '#111111',
         },
+        instagram: '#DD2A7B',
+        linkedIn: '#0072b1',
+        twitch: '#6441A4',
       },
       container: {
         center: true,
