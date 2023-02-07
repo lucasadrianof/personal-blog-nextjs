@@ -11,7 +11,7 @@ export default function Tags({ className, tags }: TagsProps) {
       {tags.map((tag) => (
         <div
           key={tag}
-          className="bg-[#ef4060] font-semibold p-1 rounded-3xl text-xs text-white"
+          className="bg-brand-background-element font-semibold p-1 rounded-3xl text-xs text-white"
         >
           {tag}
         </div>

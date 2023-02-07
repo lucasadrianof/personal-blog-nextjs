@@ -8,7 +8,7 @@ type PostPreviewProps = Pick<Post, 'date' | 'slug' | 'title'>
 export default function PostPreview({ date, slug, title }: PostPreviewProps) {
   return (
     <Link
-      className="bg-[#212425] text-white rounded-xl p-4"
+      className="bg-gray-850 text-white rounded-xl p-4"
       href={`/blog/${slug}`}
     >
       <div className="flex flex-col">

@@ -25,6 +25,7 @@ module.exports = {
         'brand-slogan': '#DCDCDC',
         gray: {
           850: '#212425',
+          950: '#111111',
         },
       },
       container: {

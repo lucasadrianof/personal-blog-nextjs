@@ -8,7 +8,7 @@ export default function PersonalInfo() {
       {personalInfo.map(({ icon, iconClass, meta, name }, index) => (
         <div className="flex items-center" key={index}>
           <span
-            className={`${iconClass} bg-[#212425] mr-2.5 flex items-center justify-center rounded-md w-12 h-12`}
+            className={`${iconClass} bg-gray-850 mr-2.5 flex items-center justify-center rounded-md w-12 h-12`}
           >
             <FontAwesomeIcon icon={icon} />
           </span>
