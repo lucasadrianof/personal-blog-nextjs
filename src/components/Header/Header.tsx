@@ -23,7 +23,7 @@ const MenuLink = ({ icon, href, onClick, text }: MenuItemLink) => {
   const activeLink = isActiveLink(href, currentPath)
 
   const classes =
-    'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-gray-850 hover:text-white hover:bg-gradient-to-r from-brand-background-element to-blue-500'
+    'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-gray-850 hover:text-white hover:bg-gradient-to-r from-brand-background-element to-rose-900'
   const className = cn(classes, {
     'bg-gradient-to-r text-white': activeLink,
     'text-gray-400': !activeLink,
