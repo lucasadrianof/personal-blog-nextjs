@@ -4,6 +4,6 @@
 
 @layer components {
   .after-effect {
-    @apply text-4xl font-bold inline-block relative after:absolute transform after:-translate-y-[50%] after:bg-gradient-to-r from-[#FA5252] to-[#DD2476] after:h-0.5 after:rounded-md after:content-[""] md:after:w-48  after:top-[50%] text-white;
+    @apply text-4xl font-bold inline-block relative after:absolute after:-translate-y-[50%] after:bg-gradient-to-r from-[#FA5252] to-[#DD2476] after:h-0.5 after:rounded-md after:content-[""] md:after:w-48  after:top-[50%] text-white;
   }
 }

@@ -3,7 +3,7 @@ import {
   faGithub,
   faInstagram,
   faLinkedinIn,
-  faTwitch,
+  faUntappd,
 } from '@fortawesome/free-brands-svg-icons'
 
 type SocialMediaType = {
@@ -33,10 +33,10 @@ const socialMedias: SocialMediaType[] = [
     label: 'GitHub',
   },
   {
-    href: 'https://twitch.tv/the_branko',
-    icon: faTwitch,
-    iconClass: 'text-twitch',
-    label: 'Twitch',
+    href: 'https://untappd.com/user/lucasadrianoo',
+    icon: faUntappd,
+    iconClass: 'text-untappd',
+    label: 'Untappd',
   },
 ]
 
