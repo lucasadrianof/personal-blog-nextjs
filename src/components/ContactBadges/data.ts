@@ -14,14 +14,14 @@ const contactTypes: ContactType[] = [
   {
     href: 'mailto:hi@lucasfadriano.dev',
     icon: faEnvelope,
-    iconColor: 'text-[#ff4057]',
+    iconColor: 'text-brand-background-element',
     text: 'hi@lucasfadriano.dev',
     title: 'Email',
   },
   {
     href: 'https://www.linkedin.com/in/lucas-felicio-adriano/',
     icon: faLinkedinIn,
-    iconColor: 'text-[#0072b1]',
+    iconColor: 'text-linkedIn',
     text: 'Lucas Felicio Adriano',
     title: 'LinkedIn',
   },

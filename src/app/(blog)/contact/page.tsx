@@ -4,7 +4,7 @@ import ContactBadges from '@/components/ContactBadges/ContactBadges'
 
 export default function About() {
   return (
-    <div className="lg:container lg:rounded-2xl bg-[#111111] flex-grow px-4 sm:px-5 md:px-10 lg:px-20">
+    <div className="lg:container lg:rounded-2xl bg-gray-950 flex-grow px-4 sm:px-5 md:px-10 lg:px-20">
       <div>
         <div className="sm:py-12 xs:pt-0 xs:pb-12">
           <h2 className="after-effect after:left-40 mt-12 mb-10 xs:mt-6 md:mt-0">

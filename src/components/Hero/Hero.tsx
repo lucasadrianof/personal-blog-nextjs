@@ -17,7 +17,7 @@ export default function Hero() {
       <h3 className="mt-6 mb-1 text-3xl font-semibold text-white">
         Lucas Felicio Adriano
       </h3>
-      <p className="mb-4 color-white text-[#7B7B7B]">
+      <p className="mb-4 color-white text-gray-500">
         Senior&nbsp;
         <span className="after:animate-title" />
       </p>
@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
       <a
         href="#"
-        className="flex items-center bg-gradient-to-r from-[#FA5252] to-[#DD2476] duration-200 transition ease-linear hover:bg-gradient-to-l px-8 py-3 text-lg text-white rounded-[35px] mt-6"
+        className="flex items-center bg-gradient-to-r from-brand-background-element to-rose-900 amber-500 duration-200 transition ease-linear hover:bg-gradient-to-l px-8 py-3 text-lg text-white rounded-[35px] mt-6"
       >
         <FontAwesomeIcon className="mr-2" icon={faDownload} />
         Download CV

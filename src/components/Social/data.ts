@@ -17,13 +17,13 @@ const socialMedias: SocialMediaType[] = [
   {
     href: 'https://www.linkedin.com/in/lucas-felicio-adriano/',
     icon: faLinkedinIn,
-    iconClass: 'text-[#0072b1]',
+    iconClass: 'text-linkedIn',
     label: 'LinkedIn',
   },
   {
     href: 'https://www.instagram.com/lucas.adrianoo/',
     icon: faInstagram,
-    iconClass: 'text-[#DD2A7B]',
+    iconClass: 'text-instagram',
     label: 'Instagram',
   },
   {
@@ -35,7 +35,7 @@ const socialMedias: SocialMediaType[] = [
   {
     href: 'https://twitch.tv/the_branko',
     icon: faTwitch,
-    iconClass: 'text-[#6441A4]',
+    iconClass: 'text-twitch',
     label: 'Twitch',
   },
 ]

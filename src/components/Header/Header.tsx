@@ -23,10 +23,10 @@ const MenuLink = ({ icon, href, onClick, text }: MenuItemLink) => {
   const activeLink = isActiveLink(href, currentPath)
 
   const classes =
-    'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-[#212425] hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476]'
+    'flex items-center px-5 py-3 rounded-md font-medium text-sm bg-gray-850 hover:text-white hover:bg-gradient-to-r from-brand-background-element to-rose-900'
   const className = cn(classes, {
     'bg-gradient-to-r text-white': activeLink,
-    'text-[#A6A6A6]': !activeLink,
+    'text-gray-400': !activeLink,
   })
 
   return (
@@ -68,7 +68,7 @@ export default function Header() {
         <div className="flex items-center lg:hidden">
           <button
             aria-label="Menu Button"
-            className="w-9 h-9 bg-[#ef4060] rounded-full"
+            className="w-9 h-9 bg-brand-background-element rounded-full"
             onClick={toggleMenuOpen}
             ref={buttonRef}
           >
@@ -83,14 +83,14 @@ export default function Header() {
         <ul
           className={`${
             menuOpen
-              ? 'block lg:hidden absolute left-0 top-20 w-full bg-[#212425] drop-shadow-lg py-4 z-10 '
+              ? 'block lg:hidden absolute left-0 top-20 w-full bg-gray-850 drop-shadow-lg py-4 z-10 '
               : 'flex'
           }`}
           ref={menuRef}
         >
-          {menuData.map(({ href, icon, text }, index) => (
+          {menuData.map(({ href, icon, text }) => (
             <MenuLink
-              key={index}
+              key={href}
               icon={icon}
               href={href}
               text={text}
