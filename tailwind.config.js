@@ -29,7 +29,7 @@ module.exports = {
         },
         instagram: '#DD2A7B',
         linkedIn: '#0072b1',
-        twitch: '#6441A4',
+        untappd: '#E7B549',
       },
       container: {
         center: true,
