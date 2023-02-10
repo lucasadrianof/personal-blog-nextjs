@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createClient, SanityClient } from "next-sanity";
-import type { ParseBody } from 'next-sanity/webhook'
 import { parseBody } from 'next-sanity/webhook'
-import type { SlugValue } from 'sanity'
+import type { SanityDocument, SlugValue } from 'sanity'
 
 import { apiVersion, dataset, projectId } from "@/lib/sanity/sanity.api";
 import {
@@ -17,7 +16,7 @@ const { SANITY_REVALIDATE_SECRET } = process.env
 
 type StaleRoute = '/blog' | `/blog/${string}`
 
-interface StaleRouteBody extends Pick<ParseBody['body'], '_type' | '_id' > {
+interface StaleRouteBody extends Pick<SanityDocument, '_type' | '_id' > {
   date?: string
   slug?: SlugValue
 }
@@ -29,24 +28,31 @@ const getPostSlugsByAuthor = (client: SanityClient, date: string):Promise<string
 
 const queryStaleRoutes = async (body: StaleRouteBody): Promise<StaleRoute[]> => {
   const client = createClient({ apiVersion, dataset, projectId, useCdn: false })
-  const { _id, _type, slug } = body
+  const { _id, _type } = body
 
   // When a post was deleted
-  if (_type === 'post' && !await getPostById(client, _id)) {
-    const staleRoutes: StaleRoute[] = ['/blog']
-
-    if (slug?.current) {
-      staleRoutes.push(`/blog/${slug.current}`)
-    }
-
-    return staleRoutes
-  }
+  if (_type === 'post' && !await getPostById(client, _id))
+    return await getStaleRoutesForDeletedPost(client, body)
 
   switch (_type) {
   case 'post': return await queryStalePostRoutes(client, _id)
   case 'author': return await queryStateAuthorRoutes(client, _id)
   default: return []
   }
+}
+
+const getStaleRoutesForDeletedPost = async(client: SanityClient, body: StaleRouteBody): Promise<StaleRoute[]> => {
+  let staleRoutes: StaleRoute[] = ['/blog']
+
+  const { date, slug } = body
+  const previousPost = date ? await getPreviousPost(client, date) : undefined
+  const nextPosts = date ? await queryNextPosts(client, date) : []
+
+  if (slug?.current) staleRoutes.push(`/blog/${slug.current}`)
+  if (previousPost) staleRoutes.push(`/blog/${previousPost.slug}`)
+  staleRoutes = [...staleRoutes, ...nextPosts]
+
+  return staleRoutes
 }
 
 const queryStalePostRoutes = async(client: SanityClient, id: string):Promise<StaleRoute[]> => {
@@ -66,6 +72,21 @@ const queryStateAuthorRoutes = async(client: SanityClient, id: string): Promise<
   return ['/blog',
     ...slugsByAuthor.map(slug => `/blog/${slug}` as StaleRoute),
   ]
+}
+
+const queryNextPosts = async(client: SanityClient, date: string): Promise<StaleRoute[]> => {
+  const nextPost = await getNextPost(client, date)
+  let postSlugs: StaleRoute[] = []
+
+  if (nextPost) {
+    const nextPostSlugs = await queryNextPosts(client, nextPost.date)
+    postSlugs = [
+      `/blog/${nextPost.slug}` as StaleRoute,
+      ...nextPostSlugs,
+    ]
+  }
+
+  return postSlugs
 }
 
 export default async function cacheRevalidate(req: NextApiRequest, res: NextApiResponse) {
