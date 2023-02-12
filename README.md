@@ -1,38 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lucas Felicio Adriano Personal Website
 
-## Getting Started
+## About the project
 
-First, run the development server:
+My personal website rewritten with Next.js and Tailwind CSS (it was originally written with Hugo and had only static content).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The Homepage, About Me, and Contact pages are static, while all pages under `/blog/*` are dynamic and their content is served from Sanity. All these pages are Server Side Rendered (SSR) by default and are re-validated via a webhook that's fired every time their content changes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The website is hosted on Vercel and the CI/CD pipeline [is configured on GH Actions](https://github.com/lucasadrianof/personal-blog-nextjs/blob/master/.github/workflows/prod-deployment.yml), deploying to production every time a new commit is pushed to the `main` branch.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The following tools and frameworks were used to develop the website:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [AOS](https://github.com/michalsnik/aos)
+- [Date-fns](https://www.npmjs.com/package/date-fns)
+- [Font Awesome](https://fontawesome.com/)
+- [GitHub Actions](https://github.com/features/actions)
+- [Next.js](https://nextjs.org/)
+- [Next.js Sitemap](https://github.com/iamvishnusankar/next-sitemap)
+- [React PortableText](https://github.com/portabletext/react-portabletext)
+- [Sanity CMS](https://www.sanity.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Typescript](https://www.typescriptlang.org/)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Inspirations
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Bostami - Personal Portfolio React](https://themeforest.net/item/bostami-tailwind-css-personal-portfolio-react-template/38598542)
+- [Livramento - by Matheus do Livramento](https://github.com/livramatheus/livramento)

@@ -2,7 +2,7 @@
   "name": "personal-blog-nextjs",
   "description": "Personal blog rewritten in Next.js + Tailwind CSS",
   "version": "0.1.0",
-  "license": "UNLICENSED",
+  "license" : "BSD-3-Clause",
   "private": true,
   "repository": {
     "type": "git",
