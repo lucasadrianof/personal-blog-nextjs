@@ -5,7 +5,7 @@ import contactTypes from '@/components/ContactBadges/data'
 export default function ContactBadges() {
   return (
     <>
-      {contactTypes.map(({ href, icon, iconColor, text, title }, index) => (
+      {contactTypes.map(({ href, icon, iconColor, text, title }, index) =>
         <div className="flex gap-2 p-8 rounded-xl bg-gray-850" key={index}>
           <span className="w-8 mt-2">
             <FontAwesomeIcon className={`${iconColor} text-4xl`} icon={icon} />
@@ -20,7 +20,7 @@ export default function ContactBadges() {
             </a>
           </div>
         </div>
-      ))}
+      )}
     </>
   )
 }

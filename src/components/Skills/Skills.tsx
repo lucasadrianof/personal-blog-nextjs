@@ -6,7 +6,7 @@ import skills from '@/components/Skills/data'
 export default function Skills() {
   return (
     <>
-      {skills.map(({ description, icon, iconColor, title }, index) => (
+      {skills.map(({ description, icon, iconColor, title }, index) =>
         <div
           className="border-2 border-gray-850 bg-transparent rounded-xl p-6 flex items-center gap-4"
           key={index}
@@ -17,7 +17,7 @@ export default function Skills() {
             <p className="leading-8 text-gray-400">{description}</p>
           </div>
         </div>
-      ))}
+      )}
     </>
   )
 }

@@ -18,7 +18,7 @@ const personalInfo: PersonalInfo[] = [
     icon: faEnvelopeOpenText,
     iconClass: 'text-brand-background-element',
     name: 'Email',
-    meta: (
+    meta:
       <>
         <a
           className="hover:text-brand-background-element duration-300 transition"
@@ -27,13 +27,13 @@ const personalInfo: PersonalInfo[] = [
           hi@lucasfadriano.dev
         </a>
       </>
-    ),
+    ,
   },
   {
     icon: faLinkedinIn,
     iconClass: 'text-linkedIn',
     name: 'LinkedIn',
-    meta: (
+    meta:
       <>
         <a
           className="hover:text-brand-background-element duration-300 transition"
@@ -44,7 +44,7 @@ const personalInfo: PersonalInfo[] = [
           Lucas Felicio Adriano
         </a>
       </>
-    ),
+    ,
   },
   {
     icon: faGraduationCap,
@@ -56,7 +56,7 @@ const personalInfo: PersonalInfo[] = [
     icon: faBuilding,
     iconClass: 'text-purple-500',
     name: 'Work',
-    meta: (
+    meta:
       <>
         <a
           className="hover:text-brand-background-element duration-300 transition"
@@ -67,7 +67,7 @@ const personalInfo: PersonalInfo[] = [
           X-Team
         </a>
       </>
-    ),
+    ,
   },
 ]
 

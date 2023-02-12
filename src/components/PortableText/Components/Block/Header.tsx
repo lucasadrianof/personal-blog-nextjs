@@ -12,23 +12,23 @@ const slugify = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 const Header =
   (Element: React.FC<HeaderProps>): PortableTextBlockComponent =>
   // eslint-disable-next-line react/display-name
-  ({ value, children }) => {
-    const slug = slugify(toPlainText(value))
+    ({ value, children }) => {
+      const slug = slugify(toPlainText(value))
 
-    return (
-      <Element className="cursor-pointer text-white mt-6">
-        <a href={`#${slug}`}>
-          <FontAwesomeIcon className="pr-1 text-sm" icon={faHashtag} />
-          {children}
-        </a>
-      </Element>
-    )
-  }
+      return (
+        <Element className="cursor-pointer text-white mt-6">
+          <a href={`#${slug}`}>
+            <FontAwesomeIcon className="pr-1 text-sm" icon={faHashtag} />
+            {children}
+          </a>
+        </Element>
+      )
+    }
 
-export const H4Header = Header(({ children, className }) => (
+export const H4Header = Header(({ children, className }) =>
   <h4 className={`${className} font-bold`}>{children}</h4>
-))
+)
 
-export const H5Header = Header(({ children, className }) => (
+export const H5Header = Header(({ children, className }) =>
   <h5 className={`${className} font-semibold`}>{children}</h5>
-))
+)

@@ -88,7 +88,7 @@ export default function Header() {
           }`}
           ref={menuRef}
         >
-          {menuData.map(({ href, icon, text }) => (
+          {menuData.map(({ href, icon, text }) =>
             <MenuLink
               key={href}
               icon={icon}
@@ -98,7 +98,7 @@ export default function Header() {
                 if (menuOpen) setMenuOpen(false)
               }}
             />
-          ))}
+          )}
         </ul>
       </nav>
     </header>
