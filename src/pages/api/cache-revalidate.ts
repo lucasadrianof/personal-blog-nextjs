@@ -10,7 +10,7 @@ import {
   postSlugsByAuthorQuery,
   previuousPostByDateQuery,
 } from '@/lib/sanity/sanity.queries'
-import { Post } from '@/lib/sanity/types'
+import type { Post } from '@/lib/sanity/types'
 
 const { SANITY_REVALIDATE_SECRET } = process.env
 
@@ -23,10 +23,13 @@ interface StaleRouteBody extends Pick<SanityDocument, '_type' | '_id'> {
 
 const getPostById = (client: SanityClient, id: string): Promise<Post> =>
   client.fetch(postByIdQuery, { id })
+
 const getNextPost = (client: SanityClient, date: string): Promise<Post> =>
   client.fetch(nextPostByDateQuery, { date })
+
 const getPreviousPost = (client: SanityClient, date: string): Promise<Post> =>
   client.fetch(previuousPostByDateQuery, { date })
+
 const getPostSlugsByAuthor = (
   client: SanityClient,
   id: string
@@ -134,11 +137,7 @@ export default async function cacheRevalidate(
       return res.status(400).send(message)
     }
 
-    console.log({ body, raw: req.body })
     const staleRoutes = await queryStaleRoutes(body)
-
-    console.log({ staleRoutes })
-
     await Promise.all(staleRoutes.map((route) => res.revalidate(route)))
 
     const message = `Revalidated routes: ${staleRoutes.join(', ')}`
