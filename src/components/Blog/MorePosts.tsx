@@ -18,7 +18,7 @@ export default function MorePosts({ previousPost, nextPost }: MorePostsProps) {
           'justify-end': !previousPost && !!nextPost,
         })}
       >
-        {previousPost && (
+        {previousPost &&
           <PostNavigationLink
             key={previousPost.slug}
             date={previousPost.date}
@@ -26,8 +26,8 @@ export default function MorePosts({ previousPost, nextPost }: MorePostsProps) {
             title={previousPost.title}
             type="Previous"
           />
-        )}
-        {nextPost && (
+        }
+        {nextPost &&
           <PostNavigationLink
             key={nextPost.slug}
             date={nextPost.date}
@@ -35,7 +35,7 @@ export default function MorePosts({ previousPost, nextPost }: MorePostsProps) {
             title={nextPost.title}
             type="Next"
           />
-        )}
+        }
       </div>
     </section>
   )
