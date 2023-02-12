@@ -1,6 +1,13 @@
+const { SITE_URL } = process.env
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://lucasfadriano.dev',
+  siteUrl: SITE_URL,
   generateRobotsTxt: true,
-  exclude: ["/studio"]
+  exclude: ["/blog/*", "/studio", "/sitemap-blog.xml"],
+  robotsTxtOptions: {
+    additionalSitemaps: [
+      `${SITE_URL}/sitemap-blog.xml`
+    ]
+  }
 }
