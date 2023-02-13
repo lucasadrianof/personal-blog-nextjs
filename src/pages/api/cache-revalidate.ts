@@ -12,7 +12,7 @@ import {
 } from '@/lib/sanity/sanity.queries'
 import type { Post } from '@/lib/sanity/types'
 
-const { SANITY_REVALIDATE_SECRET } = process.env
+const { SANITY_REVALIDATE_SECRET, WEBHOOK_AUTHORIZATION_TOKEN } = process.env
 
 type StaleRoute = '/blog' | `/blog/${string}`
 
@@ -120,6 +120,12 @@ export default async function cacheRevalidate(
   res: NextApiResponse
 ) {
   try {
+    if (req.headers['authorization'] !== `Bearer ${WEBHOOK_AUTHORIZATION_TOKEN}`) {
+      const message = 'Unauthorized'
+      console.log(message)
+      return res.status(401).send(message)
+    }
+
     const { body, isValidSignature } = await parseBody(
       req,
       SANITY_REVALIDATE_SECRET
