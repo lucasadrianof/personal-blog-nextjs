@@ -9,6 +9,8 @@ export default function Skills() {
       {skills.map(({ description, icon, iconColor, title }, index) =>
         <div
           className="border-2 border-gray-850 bg-transparent rounded-xl p-6 flex items-center gap-4"
+          data-aos="fade-up"
+          data-aos-once={true}
           key={index}
         >
           <FontAwesomeIcon className={cn(iconColor, 'text-2xl')} icon={icon} />

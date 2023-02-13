@@ -11,16 +11,16 @@ export default function About() {
             Contact
           </h2>
           <div className="flex flex-col-reverse lg:flex-row">
-            <div className="flex flex-col space-y-6 xs:mt-6 sm:mt-0">
+            <div className="flex flex-col space-y-6 xs:mt-6 sm:mt-0" data-aos="fade-right">
               <ContactBadges />
             </div>
-            <div className="flex flex-col grow items-center justify-center">
+            <div className="flex flex-col grow items-center justify-center" data-aos="fade-left">
               <Image
                 alt="Contact Person"
                 className="rounded-3xl"
                 src="/contact-person.png"
-                height={500}
-                width={500}
+                height={400}
+                width={400}
               />
               <h2 className="mt-4 px-4 self-center text-center text-white">
                 You can reach out to me through any of the social medias listed
