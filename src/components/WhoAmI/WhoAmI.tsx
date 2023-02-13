@@ -29,7 +29,7 @@ export default function WhoAmI() {
             bring value and results to the partner.
           </p>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <h3 className="text-2xl font-medium text-white mb-2.5">
             Personal Info
           </h3>
