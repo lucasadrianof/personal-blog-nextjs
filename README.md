@@ -1,6 +1,6 @@
-# Lucas Felicio Adriano Personal Website
+# Lucas Felicio Adriano personal website
 
-## About the project
+## ℹ️ About the project
 
 My personal website rewritten with Next.js and Tailwind CSS (it was originally written with Hugo and had only static content).
 
@@ -8,7 +8,7 @@ The Homepage, About Me, and Contact pages are static, while all pages under `/bl
 
 The website is hosted on Vercel and the CI/CD pipeline [is configured on GH Actions](https://github.com/lucasadrianof/personal-blog-nextjs/blob/master/.github/workflows/prod-deployment.yml), deploying to production every time a new commit is pushed to the `main` branch.
 
-## Technologies
+## ⚒️ Technologies
 
 The following tools and frameworks were used to develop the website:
 
@@ -23,7 +23,7 @@ The following tools and frameworks were used to develop the website:
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Typescript](https://www.typescriptlang.org/)
 
-## Inspirations
+## 💡 Inspirations
 
 - [Bostami - Personal Portfolio React](https://themeforest.net/item/bostami-tailwind-css-personal-portfolio-react-template/38598542)
 - [Livramento - by Matheus do Livramento](https://github.com/livramatheus/livramento)
