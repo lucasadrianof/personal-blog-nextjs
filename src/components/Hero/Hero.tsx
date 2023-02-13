@@ -6,7 +6,10 @@ import Social from '@/components/Social/Social'
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center justify-center h-[100vh] lg:h-[80vh] md:h-[80vh] sm:h-[80vh] xs:h-[80vh]">
+    <div
+      className="flex flex-col items-center justify-center h-[100vh] lg:h-[80vh] md:h-[80vh] sm:h-[80vh] xs:h-[80vh]"
+      data-aos="zoom-in"
+    >
       <Image
         alt="avatar"
         className="object-cover rounded-full h-60 w-60"
