@@ -13,6 +13,7 @@ The website is hosted on Vercel and the CI/CD pipeline [is configured on GH Acti
 The following tools and frameworks were used to develop the website:
 
 - [AOS](https://github.com/michalsnik/aos)
+- [Commento++](https://github.com/souramoo/commentoplusplus)
 - [Date-fns](https://www.npmjs.com/package/date-fns)
 - [Font Awesome](https://fontawesome.com/)
 - [GitHub Actions](https://github.com/features/actions)
