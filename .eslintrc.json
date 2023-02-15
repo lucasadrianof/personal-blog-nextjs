@@ -23,6 +23,7 @@
       "before": true
     }],
     "block-spacing": "error",
+    "eol-last": "error",
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
