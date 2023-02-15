@@ -1,10 +1,17 @@
 import Script from "next/script";
 
+const { COMMENTO_URL } = process.env
+
 export default function Commento() {
   return (
     <>
-      <Script src={`${process.env.COMMENTO_URL}/js/commento.js`} />
-      <div id="commento" />
+      {
+        COMMENTO_URL &&
+        <>
+          <Script src={`${process.env.COMMENTO_URL}/js/commento.js`} />
+          <div id="commento" />
+        </>
+      }
     </>
   )
 }
