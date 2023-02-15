@@ -22,8 +22,9 @@ services:
       COMMENTO_ORIGIN: http://localhost:8080
       COMMENTO_PORT: 8080
       COMMENTO_POSTGRES: postgres://postgres:postgres@db:5432/commento?sslmode=disable
-      COMMENTO_FORBID_NEW_OWNERS: 'true'
       COMMENTO_GZIP_STATIC: 'true'
+      # comment out this next line when first signing-up
+      COMMENTO_FORBID_NEW_OWNERS: 'true' 
 
   db:
     image: postgres:15
