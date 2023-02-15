@@ -5,6 +5,7 @@ import Header from '@/components/Blog/Header'
 import MorePosts from '@/components/Blog/MorePosts'
 import SectionSeparator from '@/components/Blog/SectionSeparator'
 import Tags from '@/components/Blog/Tags'
+import Commento from '@/components/Commento/Commento'
 import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
 import type { Post } from '@/lib/sanity/types'
 
@@ -32,6 +33,7 @@ export default async function Page({ params: { slug } }: PageProps) {
       <SectionSeparator />
       {post.tags && <Tags className="self-end" tags={post.tags} />}
       <MorePosts previousPost={previousPost} nextPost={nextPost} />
+      <Commento />
     </div>
   )
 }
