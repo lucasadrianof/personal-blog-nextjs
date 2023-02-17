@@ -11,10 +11,10 @@ export default function About() {
             Contact
           </h2>
           <div className="flex flex-col-reverse lg:flex-row">
-            <div className="flex flex-col space-y-6 xs:mt-6 sm:mt-0" data-aos="fade-right">
+            <div className="flex flex-col space-y-6 xs:mt-6 sm:mt-0" data-aos="fade-right" data-aos-once={true}>
               <ContactBadges />
             </div>
-            <div className="flex flex-col grow items-center justify-center" data-aos="fade-left">
+            <div className="flex flex-col grow items-center justify-center" data-aos="fade-left" data-aos-once={true}>
               <Image
                 alt="Contact Person"
                 className="rounded-3xl"
