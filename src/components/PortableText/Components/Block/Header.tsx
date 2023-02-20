@@ -1,34 +1,34 @@
 import { faHashtag } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PortableTextBlockComponent, toPlainText } from '@portabletext/react'
-
-interface HeaderProps {
-  children: React.ReactNode | React.ReactNode[]
-  className?: string
-}
+import { useEffect, useRef } from 'react'
 
 const slugify = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
-const Header =
-  (Element: React.FC<HeaderProps>): PortableTextBlockComponent =>
-  // eslint-disable-next-line react/display-name
-    ({ value, children }) => {
-      const slug = slugify(toPlainText(value))
+const Header:PortableTextBlockComponent = ({ children, value }) => {
+  const ref = useRef<HTMLAnchorElement>(null)
+  const slug = slugify(toPlainText(value))
 
-      return (
-        <Element className="cursor-pointer text-white mt-6">
-          <a href={`#${slug}`}>
-            <FontAwesomeIcon className="pr-1 text-sm" icon={faHashtag} />
-            {children}
-          </a>
-        </Element>
-      )
+  useEffect(() => {
+    const hash = ref.current?.hash.replace('#', '') || ''
+    const hashParams = new URLSearchParams(window.location.hash.substring(1))
+
+    if (ref.current && hashParams.has(hash)) {
+      ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
+  }, [])
 
-export const H4Header = Header(({ children, className }) =>
-  <h4 className={`${className} font-bold`}>{children}</h4>
-)
+  return (
+    <a href={`#${slug}`} ref={ref}>
+      <FontAwesomeIcon className="pr-1 text-sm" icon={faHashtag} />
+      {children}
+    </a>
+  )
+}
 
-export const H5Header = Header(({ children, className }) =>
-  <h5 className={`${className} font-semibold`}>{children}</h5>
-)
+export const H4Header:PortableTextBlockComponent = ({ ...props }) =>
+  <h4 className="cursor-pointer font-bold text-white mt-6"><Header {...props} /></h4>
+
+export const H5Header:PortableTextBlockComponent = ({ ...props }) =>
+  <h5 className="cursor-pointer font-bold text-white mt-6"><Header {...props} /></h5>
+
