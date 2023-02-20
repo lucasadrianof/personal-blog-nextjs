@@ -9,17 +9,19 @@ const Header:PortableTextBlockComponent = ({ children, value }) => {
   const ref = useRef<HTMLAnchorElement>(null)
   const slug = slugify(toPlainText(value))
 
+  const scrollIntoLink = () => ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+
   useEffect(() => {
     const hash = ref.current?.hash.replace('#', '') || ''
     const hashParams = new URLSearchParams(window.location.hash.substring(1))
 
     if (ref.current && hashParams.has(hash)) {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      scrollIntoLink()
     }
   }, [])
 
   return (
-    <a href={`#${slug}`} ref={ref}>
+    <a href={`#${slug}`} onClick={scrollIntoLink} ref={ref}>
       <FontAwesomeIcon className="pr-1 text-sm" icon={faHashtag} />
       {children}
     </a>
