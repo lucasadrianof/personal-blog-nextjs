@@ -28,3 +28,4 @@ The following tools and frameworks were used to develop the website:
 
 - [Bostami - Personal Portfolio React](https://themeforest.net/item/bostami-tailwind-css-personal-portfolio-react-template/38598542)
 - [Livramento - by Matheus do Livramento](https://github.com/livramatheus/livramento)
+- [ma.ttias.be - by Mattias Geniar](https://ma.ttias.be/blog)

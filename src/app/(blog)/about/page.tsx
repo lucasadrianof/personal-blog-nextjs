@@ -4,7 +4,7 @@ import WhoAmI from '@/components/WhoAmI/WhoAmI'
 export default function About() {
   return (
     <div className="lg:container lg:rounded-2xl bg-gray-950 px-4 sm:px-5 md:px-10 lg:px-20">
-      <div>
+      <div data-aos="fade" data-aos-duration={300} data-aos-once={true}>
         <div className="sm:py-12 xs:pt-0 xs:pb-12">
           <h2 className="after-effect after:left-52 mt-12 xs:mt-6 lg:mt-0">
             About me
