@@ -25,9 +25,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
+# local configuration files
 .env*.local
 .env
+docker-compose.override.yml
 
 # vercel
 .vercel

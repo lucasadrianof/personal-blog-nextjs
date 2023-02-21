@@ -1,9 +1,16 @@
 FROM node:18
 
-COPY package.json package-lock.json $WORKING_DIR/
+USER node
+WORKDIR /home/app/node
+
+COPY --chown=node:node package.json package-lock.json ./
 
 RUN npm install --no-save
 
+COPY --chown=node:node . .
+
+RUN npm run build
+
 EXPOSE 3000
 
-CMD [ "npm", "run dev" ]
+CMD [ "npm", "run start" ]
