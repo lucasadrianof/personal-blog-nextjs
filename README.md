@@ -4,7 +4,7 @@
 
 My personal website rewritten with Next.js and Tailwind CSS (it was originally written with Hugo and had only static content).
 
-The Homepage, About Me, and Contact pages are static, while all pages under `/blog/*` are dynamic and their content is served from Sanity. All these pages are Server Side Rendered (SSR) by default and are re-validated via a webhook that's fired every time their content changes.
+The Homepage, About Me, and Contact pages are static, while all pages under `/blog/*` are dynamic and their content is served from Sanity. All these have their content cached by default on Server (SSG) and are re-validated via a webhook that's fired every time their content changes.
 
 The website is hosted on Vercel and the CI/CD pipeline [is configured on GH Actions](https://github.com/lucasadrianof/personal-blog-nextjs/blob/master/.github/workflows/prod-deployment.yml), deploying to production every time a new commit is pushed to the `main` branch.
 
