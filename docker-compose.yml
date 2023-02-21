@@ -2,14 +2,9 @@ version: "3"
 services:
   app:
     build: .
-    user: root
-    working_dir: /app
     command: npm run dev
     ports: 
       - "3000:3000"
-    volumes:
-      - ./:/app
-      - /app/node_modules
 
   commento:
     image: caroga/commentoplusplus
