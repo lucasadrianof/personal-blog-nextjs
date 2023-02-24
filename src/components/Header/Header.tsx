@@ -60,15 +60,13 @@ export default function Header() {
   return (
     <header className="lg:container w-full h-24 flex flex-shrink-0 items-center place-content-between bg-black lg:bg-transparent">
       <div className="flex grow justify-between items-center px-4">
-        <div>
-          <Link href="/">
-            <Image alt="logo.svg" src="/logo.svg" height={32} width={192} />
-          </Link>
-        </div>
-        <div className="flex items-center lg:hidden">
+        <Link href="/">
+          <Image alt="logo.svg" src="/logo.svg" height={32} width={192} />
+        </Link>
+        <div className="lg:hidden">
           <button
             aria-label="Menu Button"
-            className="w-9 h-9 bg-brand-background-element rounded-full"
+            className="w-9 h-9 bg-brand-background-element flex items-center justify-center rounded-full"
             onClick={toggleMenuOpen}
             ref={buttonRef}
           >
