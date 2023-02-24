@@ -25,7 +25,7 @@ const skills: Skill[] = [
   {
     icon: faCloud,
     iconColor: 'text-yellow-500',
-    description: 'AWS, GitHub Actions, Docker, Serverless, CI/CD, Terraform',
+    description: 'AWS, GitHub Actions, Jenkins, Docker, Serverless, Terraform',
     title: 'DevOps',
   },
   {
@@ -44,7 +44,7 @@ const skills: Skill[] = [
   {
     icon: faCss3Alt,
     iconColor: 'text-pink-500',
-    description: 'HTML5, CSS3, Tailwind, Bootstrap, React, Next.js, SEO',
+    description: 'HTML5, CSS3, Tailwind, Bootstrap, React, Next.js, SEO, CDN',
     title: 'Web Development',
   },
   {
