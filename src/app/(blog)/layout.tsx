@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import useViewportCorrection from '@/hooks/useViewportCorrection';
 
 config.autoAddCss = false
 
@@ -18,6 +19,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  useViewportCorrection()
+
   useEffect(() => {
     AOS.init()
   }, [])
@@ -25,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="bg-center-center bg-cover bg-fixed bg-no-repeat bg-home flex flex-col min-h-screen w-full">
+      <body className="bg-center-center bg-cover bg-fixed bg-no-repeat bg-home flex flex-col min-h-screen h-screen w-full">
         <Header />
         {children}
         <Footer />
