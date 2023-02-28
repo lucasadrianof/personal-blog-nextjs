@@ -28,8 +28,9 @@ export default function Hero() {
         <Social />
       </div>
       <a
-        href="#"
         className="flex items-center bg-gradient-to-r from-brand-background-element to-rose-900 amber-500 duration-200 transition ease-linear hover:bg-gradient-to-l px-8 py-3 text-lg text-white rounded-[35px] mt-6"
+        href={process.env.RESUME_DOWNLOAD_URL}
+        target="_blank" rel="noreferrer"
       >
         <FontAwesomeIcon className="mr-2" icon={faDownload} />
         Download CV
