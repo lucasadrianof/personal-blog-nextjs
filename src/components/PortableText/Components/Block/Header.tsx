@@ -1,24 +1,14 @@
 import { faHashtag } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PortableTextBlockComponent, toPlainText } from '@portabletext/react'
-import { useEffect, useRef } from 'react'
 
-const slugify = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+import useScrollIntoLink from '@/hooks/useScrollIntoLink'
+
+export const slugify = (text: string) => text.toLowerCase().replace(/[^a-z0-9#]+/g, '-')
 
 const Header:PortableTextBlockComponent = ({ children, value }) => {
-  const ref = useRef<HTMLAnchorElement>(null)
+  const [ref, scrollIntoLink] = useScrollIntoLink()
   const slug = slugify(toPlainText(value))
-
-  const scrollIntoLink = () => ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-
-  useEffect(() => {
-    const hash = ref.current?.hash.replace('#', '') || ''
-    const hashParams = new URLSearchParams(window.location.hash.substring(1))
-
-    if (ref.current && hashParams.has(hash)) {
-      scrollIntoLink()
-    }
-  }, [])
 
   return (
     <a href={`#${slug}`} onClick={scrollIntoLink} ref={ref}>
