@@ -8,7 +8,7 @@ import {
   nextPostByDateQuery,
   postByIdQuery,
   postSlugsByAuthorQuery,
-  previuousPostByDateQuery,
+  previousPostByDateQuery,
 } from '@/lib/sanity/sanity.queries'
 import type { Post } from '@/lib/sanity/types'
 
@@ -21,23 +21,19 @@ interface StaleRouteBody extends Pick<SanityDocument, '_type' | '_id'> {
   slug?: SlugValue
 }
 
-const getPostById = (client: SanityClient, id: string): Promise<Post> =>
-  client.fetch(postByIdQuery, { id })
+const getPostById = (client: SanityClient, id: string) =>
+  client.fetch<Post>(postByIdQuery, { id })
 
-const getNextPost = (client: SanityClient, date: string): Promise<Post> =>
-  client.fetch(nextPostByDateQuery, { date })
+const getNextPost = (client: SanityClient, date: string) =>
+  client.fetch<Post>(nextPostByDateQuery, { date })
 
-const getPreviousPost = (client: SanityClient, date: string): Promise<Post> =>
-  client.fetch(previuousPostByDateQuery, { date })
+const getPreviousPost = (client: SanityClient, date: string) =>
+  client.fetch<Post>(previousPostByDateQuery, { date })
 
-const getPostSlugsByAuthor = (
-  client: SanityClient,
-  id: string
-): Promise<string[]> => client.fetch(postSlugsByAuthorQuery, { id })
+const getPostSlugsByAuthor = (client: SanityClient, id: string) =>
+  client.fetch<string[]>(postSlugsByAuthorQuery, { id })
 
-const queryStaleRoutes = async (
-  body: StaleRouteBody
-): Promise<StaleRoute[]> => {
+const queryStaleRoutes = async (body: StaleRouteBody): Promise<StaleRoute[]> => {
   const client = createClient({ apiVersion, dataset, projectId, useCdn: false })
   const { _id, _type } = body
 
@@ -55,10 +51,7 @@ const queryStaleRoutes = async (
   }
 }
 
-const getStaleRoutesForDeletedPost = async (
-  client: SanityClient,
-  body: StaleRouteBody
-): Promise<StaleRoute[]> => {
+const getStaleRoutesForDeletedPost = async (client: SanityClient, body: StaleRouteBody): Promise<StaleRoute[]> => {
   let staleRoutes: StaleRoute[] = ['/blog']
 
   const { date, slug } = body
@@ -72,24 +65,18 @@ const getStaleRoutesForDeletedPost = async (
   return staleRoutes
 }
 
-const queryStalePostRoutes = async (
-  client: SanityClient,
-  id: string
-): Promise<StaleRoute[]> => {
+const queryStalePostRoutes = async (client: SanityClient, id: string): Promise<StaleRoute[]> => {
   const post = await getPostById(client, id)
   const nextPost = await getNextPost(client, post.date)
   const previousPost = await getPreviousPost(client, post.date)
   const stalePosts = [post, nextPost, previousPost]
-    .filter((post) => !!post)
+    .filter(post => !!post)
     .map(({ slug }) => `/blog/${slug}` as StaleRoute)
 
   return ['/blog', ...stalePosts]
 }
 
-const queryStateAuthorRoutes = async (
-  client: SanityClient,
-  id: string
-): Promise<StaleRoute[]> => {
+const queryStateAuthorRoutes = async (client: SanityClient, id: string): Promise<StaleRoute[]> => {
   const slugsByAuthor = await getPostSlugsByAuthor(client, id)
 
   return [
@@ -98,10 +85,7 @@ const queryStateAuthorRoutes = async (
   ]
 }
 
-const queryNextPosts = async (
-  client: SanityClient,
-  date: string
-): Promise<StaleRoute[]> => {
+const queryNextPosts = async (client: SanityClient, date: string): Promise<StaleRoute[]> => {
   const nextPost = await getNextPost(client, date)
   let postSlugs: StaleRoute[] = []
 
@@ -115,10 +99,7 @@ const queryNextPosts = async (
 
 export { config } from 'next-sanity/webhook'
 
-export default async function cacheRevalidate(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function cacheRevalidate(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.headers['authorization'] !== `Bearer ${WEBHOOK_AUTHORIZATION_TOKEN}`) {
       const message = 'Unauthorized'
@@ -126,10 +107,7 @@ export default async function cacheRevalidate(
       return res.status(401).send(message)
     }
 
-    const { body, isValidSignature } = await parseBody(
-      req,
-      SANITY_REVALIDATE_SECRET
-    )
+    const { body, isValidSignature } = await parseBody(req, SANITY_REVALIDATE_SECRET)
 
     if (!isValidSignature) {
       const message = 'Invalid signature'
@@ -144,7 +122,7 @@ export default async function cacheRevalidate(
     }
 
     const staleRoutes = await queryStaleRoutes(body)
-    await Promise.all(staleRoutes.map((route) => res.revalidate(route)))
+    await Promise.all(staleRoutes.map(route => res.revalidate(route)))
 
     const message = `Revalidated routes: ${staleRoutes.join(', ')}`
     console.log(message)

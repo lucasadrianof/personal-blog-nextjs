@@ -26,7 +26,7 @@ const previousPostQuery = groq`
 }
 `
 
-export const previuousPostByDateQuery = groq`
+export const previousPostByDateQuery = groq`
 *[_type == "post" && date < $date] | order(date desc) [0] {
   ${postFields}
 }
@@ -45,7 +45,9 @@ export const postSlugsByAuthorQuery = groq`
 `
 
 export const postByIdQuery = groq`
-*[_type == "post" && _id == $id][0]
+*[_type == "post" && _id == $id][0] {
+  ${postFields}
+}
 `
 
 export const postBySlugQuery = groq`
