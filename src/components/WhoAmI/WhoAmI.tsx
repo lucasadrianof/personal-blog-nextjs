@@ -28,6 +28,12 @@ export default function WhoAmI() {
             tasks, learning as much as I can while I go and trying to always
             bring value and results to the partner.
           </p>
+          <p className="leading-7 text-gray-400 mt-2.5">
+            Aside from work, I really like to travel and get to know different places
+            and try different foods and beers. From time to time I also like to work
+            from different countries, currently my list of visited countries is four (🇧🇷🇵🇹🇪🇸🇦🇷), but
+            I have plans on growing that list as I&apos;m starting to embrace the digital nomad lifestyle.
+          </p>
         </div>
         <div>
           <h3 className="text-2xl font-medium text-white mb-2.5">

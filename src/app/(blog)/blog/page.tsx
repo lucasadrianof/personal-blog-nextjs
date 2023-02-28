@@ -20,7 +20,8 @@ export default async function Blog() {
             Blog
           </h2>
           <p className="pt-2 leading-7 text-gray-400 mt-2.5">
-            My personal blog, where I write about software development and other tech-related subjects.
+            My personal blog, where I write about software development, travelling,
+            digital nomading and other related - and a little random :) - subjects.
           </p>
         </div>
         <div className="py-4">
@@ -29,12 +30,14 @@ export default async function Blog() {
               <div className="mb-6" key={monthYear}>
                 <h3 className="border-b-2 inline-block pb-1 text-brand-slogan text-xl">{monthYear}</h3>
                 <ul className="flex flex-col pt-4" >
-                  {posts.map((post) =>
-                    <li key={post.slug} className="flex items-center gap-x-8 mb-1">
-                      <Date className="hidden md:block text-sm" dateString={post.date} />
-                      <PostPreview {...post} />
-                    </li>
-                  )}
+                  {
+                    posts.map((post) =>
+                      <li key={post.slug} className="flex items-center gap-x-8 mb-1">
+                        <Date className="hidden md:block text-sm" dateString={post.date} />
+                        <PostPreview {...post} />
+                      </li>
+                    )
+                  }
                 </ul>
               </div>
             )

@@ -50,6 +50,7 @@
     "eslint-plugin-no-relative-import-paths": "^1.5.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "postcss": "^8.4.21",
+    "postcss-viewport-height-correction": "^1.1.1",
     "prettier": "^2.8.3",
     "prettier-eslint": "^15.0.1",
     "tailwindcss": "^3.2.4",

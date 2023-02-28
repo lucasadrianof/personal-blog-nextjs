@@ -1,7 +1,7 @@
 FROM node:18
 
 USER node
-WORKDIR /home/app/node
+WORKDIR /home/node/app
 
 COPY --chown=node:node package.json package-lock.json ./
 
