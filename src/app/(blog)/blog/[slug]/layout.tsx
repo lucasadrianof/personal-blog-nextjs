@@ -3,7 +3,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div>
       <main>
         <div
-          className="bg-gray-950 mx-auto px-5 lg:container lg:rounded-2xl md:px-10 lg:px-20"
+          className="mx-auto bg-gray-950 px-5 md:px-10 lg:container lg:rounded-2xl lg:px-20"
           data-aos="fade"
           data-aos-duration={300}
         >

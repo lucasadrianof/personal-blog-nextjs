@@ -23,15 +23,15 @@ export default function PostNavigationLink({
     <Link href={`/blog/${slug}`}>
       <div className="flex items-center">
         {type === 'Previous' &&
-          <FontAwesomeIcon className="text-white mr-2" icon={faChevronLeft} />
+          <FontAwesomeIcon className="mr-2 text-white" icon={faChevronLeft} />
         }
         <div className="flex flex-col">
-          <span className="text-gray-400 text-sm">{type} Post</span>
-          <span className="font-bold text-lg text-white">{title}</span>
+          <span className="text-sm text-gray-400">{type} Post</span>
+          <span className="text-lg font-bold text-white">{title}</span>
           <Date className="text-xs" dateString={date} />
         </div>
         {type === 'Next' &&
-          <FontAwesomeIcon className="text-white ml-2" icon={faChevronRight} />
+          <FontAwesomeIcon className="ml-2 text-white" icon={faChevronRight} />
         }
       </div>
     </Link>

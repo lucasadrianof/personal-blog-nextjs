@@ -27,7 +27,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="bg-center-center bg-cover bg-fixed bg-no-repeat bg-home flex flex-col min-h-screen h-screen w-full">
+      <body className="flex h-screen min-h-screen w-full flex-col bg-home bg-cover bg-fixed bg-center-center bg-no-repeat">
         <Header />
         {children}
         <Footer />

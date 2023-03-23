@@ -30,8 +30,8 @@ const Header:PortableTextBlockComponent = ({ children, value }) => {
 }
 
 export const H4Header:PortableTextBlockComponent = ({ ...props }) =>
-  <h4 className="cursor-pointer font-bold text-white mt-6"><Header {...props} /></h4>
+  <h4 className="mt-6 cursor-pointer font-bold text-white"><Header {...props} /></h4>
 
 export const H5Header:PortableTextBlockComponent = ({ ...props }) =>
-  <h5 className="cursor-pointer font-bold text-white mt-6"><Header {...props} /></h5>
+  <h5 className="mt-6 cursor-pointer font-bold text-white"><Header {...props} /></h5>
 

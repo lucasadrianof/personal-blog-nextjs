@@ -17,7 +17,7 @@ export default function AuthorAvatar({ name, picture }: Author) {
           src={imageSrc}
         />
       </div>
-      <span className="text-xl text-gray-400 font-bold">{name}</span>
+      <span className="text-xl font-bold text-gray-400">{name}</span>
     </div>
   )
 }
