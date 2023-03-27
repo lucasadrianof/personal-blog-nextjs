@@ -40,16 +40,16 @@ const queryStaleRoutes = async (
   const { _id, _type } = body
 
   // When a post was deleted
-  if (_type === 'post' && !await getPostById(client, _id))
+  if (_type === 'post' && !(await getPostById(client, _id)))
     return await getStaleRoutesForDeletedPost(client, body)
 
   switch (_type) {
-  case 'post':
-    return await queryStalePostRoutes(client, _id)
-  case 'author':
-    return await queryStateAuthorRoutes(client, _id)
-  default:
-    return []
+    case 'post':
+      return await queryStalePostRoutes(client, _id)
+    case 'author':
+      return await queryStateAuthorRoutes(client, _id)
+    default:
+      return []
   }
 }
 

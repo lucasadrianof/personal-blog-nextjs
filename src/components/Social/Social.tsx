@@ -6,7 +6,7 @@ import socialMedias from '@/components/Social/data'
 export default function Social() {
   return (
     <>
-      {socialMedias.map(({ href, icon, iconClass, label }, key) =>
+      {socialMedias.map(({ href, icon, iconClass, label }, key) => (
         <a
           aria-label={label}
           key={key}
@@ -23,7 +23,7 @@ export default function Social() {
             <FontAwesomeIcon icon={icon} />
           </span>
         </a>
-      )}
+      ))}
     </>
   )
 }

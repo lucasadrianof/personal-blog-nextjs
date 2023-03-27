@@ -20,28 +20,33 @@ export default async function Blog() {
             Blog
           </h2>
           <p className="mt-2.5 pt-2 leading-7 text-gray-400">
-            My personal blog, where I write about software development, travelling,
-            digital nomading and other related - and a little random :) - subjects.
+            My personal blog, where I write about software development,
+            travelling, digital nomading and other related - and a little random
+            :) - subjects.
           </p>
         </div>
         <div className="py-4">
-          {
-            Object.entries(postsByMonthYear).map(([monthYear, posts]) =>
-              <div className="mb-6" key={monthYear}>
-                <h3 className="inline-block border-b-2 pb-1 text-xl text-brand-slogan">{monthYear}</h3>
-                <ul className="flex flex-col pt-4" >
-                  {
-                    posts.map((post) =>
-                      <li key={post.slug} className="mb-1 flex items-center gap-x-8">
-                        <Date className="hidden text-sm md:block" dateString={post.date} />
-                        <PostPreview {...post} />
-                      </li>
-                    )
-                  }
-                </ul>
-              </div>
-            )
-          }
+          {Object.entries(postsByMonthYear).map(([monthYear, posts]) => (
+            <div className="mb-6" key={monthYear}>
+              <h3 className="inline-block border-b-2 pb-1 text-xl text-brand-slogan">
+                {monthYear}
+              </h3>
+              <ul className="flex flex-col pt-4">
+                {posts.map((post) => (
+                  <li
+                    key={post.slug}
+                    className="mb-1 flex items-center gap-x-8"
+                  >
+                    <Date
+                      className="hidden text-sm md:block"
+                      dateString={post.date}
+                    />
+                    <PostPreview {...post} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -49,7 +54,7 @@ export default async function Blog() {
 }
 
 const groupPostsByMonth = (posts: Post[]) =>
-  posts.reduce((acc:PostsByMonthYear, post) => {
+  posts.reduce((acc: PostsByMonthYear, post) => {
     const monthYear = format(parseISO(post.date), 'MM-yyyy') as MonthYear
 
     if (monthYear in acc) {

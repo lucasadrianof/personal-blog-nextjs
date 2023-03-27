@@ -10,19 +10,12 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "plugin:tailwindcss/recommended"
+    "plugin:tailwindcss/recommended",
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "array-bracket-spacing": [
-      "error",
-      "never",
-      {
-        "objectsInArrays": true
-      }
-    ],
     "arrow-spacing": [
       "error",
       {
@@ -47,7 +40,6 @@
     "keyword-spacing": "error",
     "no-multiple-empty-lines": "error",
     "no-multi-spaces": "error",
-    "no-extra-parens": "error",
     "no-relative-import-paths/no-relative-import-paths": [
       "error",
       { "prefix": "@", "rootDir": "src" }
