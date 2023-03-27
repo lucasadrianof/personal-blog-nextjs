@@ -1,5 +1,5 @@
-import type { RefObject } from "react"
-import { useEffect, useRef } from "react"
+import type { RefObject } from 'react'
+import { useEffect, useRef } from 'react'
 
 type LinkRef = RefObject<HTMLAnchorElement>
 type ScrollIntoLink = () => void

@@ -17,14 +17,14 @@ export default function Header({
 }: HeaderProps) {
   return (
     <>
-      <h1 className="after-effect after:ml-2 mt-12 mb-2 xs:mt-6">{title}</h1>
+      <h1 className="after-effect mt-12 mb-2 after:ml-2 xs:mt-6">{title}</h1>
       <div className="mb-6 text-sm">
         <Date dateString={date} />
       </div>
       <div className="hidden md:mb-12 md:block">
         <AuthorAvatar {...author} />
       </div>
-      {coverImage &&
+      {coverImage && (
         <div className="mb-8 sm:mx-0 md:mb-16">
           <CoverImage
             coverImage={coverImage}
@@ -33,7 +33,7 @@ export default function Header({
             priority
           />
         </div>
-      }
+      )}
       <div className="mx-auto max-w-2xl">
         <div className="mb-6 block md:hidden">
           <AuthorAvatar {...author} />

@@ -58,15 +58,15 @@ export default function Header() {
   }, [clickedOutsideButton, clickedOutsideMenu, menuOpen])
 
   return (
-    <header className="lg:container w-full h-24 flex flex-shrink-0 items-center place-content-between bg-black lg:bg-transparent">
-      <div className="flex grow justify-between items-center px-4">
+    <header className="flex h-24 w-full shrink-0 place-content-between items-center bg-black lg:container lg:bg-transparent">
+      <div className="flex grow items-center justify-between px-4">
         <Link href="/">
           <Image alt="logo.svg" src="/logo.svg" height={32} width={192} />
         </Link>
         <div className="lg:hidden">
           <button
             aria-label="Menu Button"
-            className="w-9 h-9 bg-brand-background-element flex items-center justify-center rounded-full"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-background-element"
             onClick={toggleMenuOpen}
             ref={buttonRef}
           >
@@ -81,12 +81,12 @@ export default function Header() {
         <ul
           className={`${
             menuOpen
-              ? 'block lg:hidden absolute left-0 top-20 w-full bg-gray-850 drop-shadow-lg py-4 z-10 '
+              ? 'absolute left-0 top-20 z-10 block w-full bg-gray-850 py-4 drop-shadow-lg lg:hidden '
               : 'flex'
           }`}
           ref={menuRef}
         >
-          {menuData.map(({ href, icon, text }) =>
+          {menuData.map(({ href, icon, text }) => (
             <MenuLink
               key={href}
               icon={icon}
@@ -96,7 +96,7 @@ export default function Header() {
                 if (menuOpen) setMenuOpen(false)
               }}
             />
-          )}
+          ))}
         </ul>
       </nav>
     </header>

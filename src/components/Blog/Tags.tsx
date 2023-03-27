@@ -8,14 +8,14 @@ interface TagsProps {
 export default function Tags({ className, tags }: TagsProps) {
   return (
     <div className={cn(className, 'flex space-x-2 mt-1')}>
-      {tags.map((tag) =>
+      {tags.map((tag) => (
         <div
           key={tag}
-          className="bg-brand-background-element font-semibold p-1 rounded-3xl text-xs text-white"
+          className="rounded-3xl bg-brand-background-element p-1 text-xs font-semibold text-white"
         >
           {tag}
         </div>
-      )}
+      ))}
     </div>
   )
 }

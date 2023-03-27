@@ -11,13 +11,16 @@ import useScrollIntoLink from '@/hooks/useScrollIntoLink'
  */
 export const slugify = (text: string) =>
   text
-    .replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2580-\u27BF]|\uD83E[\uDD10-\uDDFF]/g, '')
+    .replace(
+      /[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2580-\u27BF]|\uD83E[\uDD10-\uDDFF]/g,
+      ''
+    )
     .replace(/\s+/g, ' ')
     .toLowerCase()
     .trim()
     .replace(/\s/g, '-')
 
-const Header:PortableTextBlockComponent = ({ children, value }) => {
+const Header: PortableTextBlockComponent = ({ children, value }) => {
   const [ref, scrollIntoLink] = useScrollIntoLink()
   const slug = slugify(toPlainText(value))
 
@@ -29,9 +32,14 @@ const Header:PortableTextBlockComponent = ({ children, value }) => {
   )
 }
 
-export const H4Header:PortableTextBlockComponent = ({ ...props }) =>
-  <h4 className="cursor-pointer font-bold text-white mt-6"><Header {...props} /></h4>
+export const H4Header: PortableTextBlockComponent = ({ ...props }) => (
+  <h4 className="mt-6 cursor-pointer font-bold text-white">
+    <Header {...props} />
+  </h4>
+)
 
-export const H5Header:PortableTextBlockComponent = ({ ...props }) =>
-  <h5 className="cursor-pointer font-bold text-white mt-6"><Header {...props} /></h5>
-
+export const H5Header: PortableTextBlockComponent = ({ ...props }) => (
+  <h5 className="mt-6 cursor-pointer font-bold text-white">
+    <Header {...props} />
+  </h5>
+)

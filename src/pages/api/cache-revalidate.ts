@@ -33,25 +33,30 @@ const getPreviousPost = (client: SanityClient, date: string) =>
 const getPostSlugsByAuthor = (client: SanityClient, id: string) =>
   client.fetch<string[]>(postSlugsByAuthorQuery, { id })
 
-const queryStaleRoutes = async (body: StaleRouteBody): Promise<StaleRoute[]> => {
+const queryStaleRoutes = async (
+  body: StaleRouteBody
+): Promise<StaleRoute[]> => {
   const client = createClient({ apiVersion, dataset, projectId, useCdn: false })
   const { _id, _type } = body
 
   // When a post was deleted
-  if (_type === 'post' && !await getPostById(client, _id))
+  if (_type === 'post' && !(await getPostById(client, _id)))
     return await getStaleRoutesForDeletedPost(client, body)
 
   switch (_type) {
-  case 'post':
-    return await queryStalePostRoutes(client, _id)
-  case 'author':
-    return await queryStateAuthorRoutes(client, _id)
-  default:
-    return []
+    case 'post':
+      return await queryStalePostRoutes(client, _id)
+    case 'author':
+      return await queryStateAuthorRoutes(client, _id)
+    default:
+      return []
   }
 }
 
-const getStaleRoutesForDeletedPost = async (client: SanityClient, body: StaleRouteBody): Promise<StaleRoute[]> => {
+const getStaleRoutesForDeletedPost = async (
+  client: SanityClient,
+  body: StaleRouteBody
+): Promise<StaleRoute[]> => {
   let staleRoutes: StaleRoute[] = ['/blog']
 
   const { date, slug } = body
@@ -65,18 +70,24 @@ const getStaleRoutesForDeletedPost = async (client: SanityClient, body: StaleRou
   return staleRoutes
 }
 
-const queryStalePostRoutes = async (client: SanityClient, id: string): Promise<StaleRoute[]> => {
+const queryStalePostRoutes = async (
+  client: SanityClient,
+  id: string
+): Promise<StaleRoute[]> => {
   const post = await getPostById(client, id)
   const nextPost = await getNextPost(client, post.date)
   const previousPost = await getPreviousPost(client, post.date)
   const stalePosts = [post, nextPost, previousPost]
-    .filter(post => !!post)
+    .filter((post) => !!post)
     .map(({ slug }) => `/blog/${slug}` as StaleRoute)
 
   return ['/blog', ...stalePosts]
 }
 
-const queryStateAuthorRoutes = async (client: SanityClient, id: string): Promise<StaleRoute[]> => {
+const queryStateAuthorRoutes = async (
+  client: SanityClient,
+  id: string
+): Promise<StaleRoute[]> => {
   const slugsByAuthor = await getPostSlugsByAuthor(client, id)
 
   return [
@@ -85,7 +96,10 @@ const queryStateAuthorRoutes = async (client: SanityClient, id: string): Promise
   ]
 }
 
-const queryNextPosts = async (client: SanityClient, date: string): Promise<StaleRoute[]> => {
+const queryNextPosts = async (
+  client: SanityClient,
+  date: string
+): Promise<StaleRoute[]> => {
   const nextPost = await getNextPost(client, date)
   let postSlugs: StaleRoute[] = []
 
@@ -99,15 +113,23 @@ const queryNextPosts = async (client: SanityClient, date: string): Promise<Stale
 
 export { config } from 'next-sanity/webhook'
 
-export default async function cacheRevalidate(req: NextApiRequest, res: NextApiResponse) {
+export default async function cacheRevalidate(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
-    if (req.headers['authorization'] !== `Bearer ${WEBHOOK_AUTHORIZATION_TOKEN}`) {
+    if (
+      req.headers['authorization'] !== `Bearer ${WEBHOOK_AUTHORIZATION_TOKEN}`
+    ) {
       const message = 'Unauthorized'
       console.log(message)
       return res.status(401).send(message)
     }
 
-    const { body, isValidSignature } = await parseBody(req, SANITY_REVALIDATE_SECRET)
+    const { body, isValidSignature } = await parseBody(
+      req,
+      SANITY_REVALIDATE_SECRET
+    )
 
     if (!isValidSignature) {
       const message = 'Invalid signature'
@@ -122,7 +144,7 @@ export default async function cacheRevalidate(req: NextApiRequest, res: NextApiR
     }
 
     const staleRoutes = await queryStaleRoutes(body)
-    await Promise.all(staleRoutes.map(route => res.revalidate(route)))
+    await Promise.all(staleRoutes.map((route) => res.revalidate(route)))
 
     const message = `Revalidated routes: ${staleRoutes.join(', ')}`
     console.log(message)

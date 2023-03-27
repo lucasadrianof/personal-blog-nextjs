@@ -5,19 +5,19 @@ import personalInfo from '@/components/PersonalInfo/data'
 export default function PersonalInfo() {
   return (
     <>
-      {personalInfo.map(({ icon, iconClass, meta, name }, index) =>
+      {personalInfo.map(({ icon, iconClass, meta, name }, index) => (
         <div className="flex items-center" key={index}>
           <span
-            className={`${iconClass} bg-gray-850 mr-2.5 flex items-center justify-center rounded-md w-12 h-12`}
+            className={`${iconClass} mr-2.5 flex h-12 w-12 items-center justify-center rounded-md bg-gray-850`}
           >
             <FontAwesomeIcon icon={icon} />
           </span>
           <div className="space-y-1">
-            <p className="test-xs text-gray-400">{name}</p>
+            <p className="text-xs text-gray-400">{name}</p>
             <h6 className="font-medium text-white">{meta}</h6>
           </div>
         </div>
-      )}
+      ))}
     </>
   )
 }

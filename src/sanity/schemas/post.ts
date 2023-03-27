@@ -31,7 +31,7 @@ export default defineType({
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [ { type: 'block' }, { type: 'image' } ],
+      of: [{ type: 'block' }, { type: 'image' }],
     }),
     defineField({
       name: 'coverImage',
@@ -51,13 +51,13 @@ export default defineType({
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: [ { type: authorType.name } ],
+      to: [{ type: authorType.name }],
     }),
     defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [ { type: 'text' } ],
+      of: [{ type: 'text' }],
     }),
   ],
   preview: {

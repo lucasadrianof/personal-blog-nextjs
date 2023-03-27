@@ -18,25 +18,25 @@ const personalInfo: PersonalInfo[] = [
     icon: faEnvelopeOpenText,
     iconClass: 'text-brand-background-element',
     name: 'Email',
-    meta:
+    meta: (
       <>
         <a
-          className="hover:text-brand-background-element duration-300 transition"
+          className="transition duration-300 hover:text-brand-background-element"
           href="mailto:hi@lucasfadriano.dev"
         >
           hi@lucasfadriano.dev
         </a>
       </>
-    ,
+    ),
   },
   {
     icon: faLinkedinIn,
     iconClass: 'text-linkedIn',
     name: 'LinkedIn',
-    meta:
+    meta: (
       <>
         <a
-          className="hover:text-brand-background-element duration-300 transition"
+          className="transition duration-300 hover:text-brand-background-element"
           href="https://www.linkedin.com/in/lucas-felicio-adriano/"
           rel="noreferrer"
           target="_blank"
@@ -44,7 +44,7 @@ const personalInfo: PersonalInfo[] = [
           Lucas Felicio Adriano
         </a>
       </>
-    ,
+    ),
   },
   {
     icon: faGraduationCap,
@@ -56,10 +56,10 @@ const personalInfo: PersonalInfo[] = [
     icon: faBuilding,
     iconClass: 'text-purple-500',
     name: 'Work',
-    meta:
+    meta: (
       <>
         <a
-          className="hover:text-brand-background-element duration-300 transition"
+          className="transition duration-300 hover:text-brand-background-element"
           href="https://www.linkedin.com/company/x-team/"
           rel="noreferrer"
           target="_blank"
@@ -67,7 +67,7 @@ const personalInfo: PersonalInfo[] = [
           X-Team
         </a>
       </>
-    ,
+    ),
   },
 ]
 

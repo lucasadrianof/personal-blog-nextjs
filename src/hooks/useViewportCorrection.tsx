@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 export default function useViewportCorrection() {
   const setViewportProperty = (doc: HTMLElement) => {
@@ -9,22 +9,30 @@ export default function useViewportCorrection() {
 
       if (clientHeight !== prevClientHeight) {
         requestAnimationFrame(() => {
-          doc.style.setProperty('--vh', clientHeight * 0.01 + 'px');
-          prevClientHeight = clientHeight;
+          doc.style.setProperty('--vh', clientHeight * 0.01 + 'px')
+          prevClientHeight = clientHeight
         })
       }
     }
 
-    handleResize();
+    handleResize()
 
-    return handleResize;
+    return handleResize
   }
 
   useEffect(() => {
-    window.addEventListener('resize', setViewportProperty(document.documentElement), true)
+    window.addEventListener(
+      'resize',
+      setViewportProperty(document.documentElement),
+      true
+    )
 
     return () => {
-      window.removeEventListener('resize', setViewportProperty(document.documentElement), true)
+      window.removeEventListener(
+        'resize',
+        setViewportProperty(document.documentElement),
+        true
+      )
     }
   }, [])
 }
