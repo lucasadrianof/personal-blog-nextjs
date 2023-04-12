@@ -1,12 +1,16 @@
 {
   "name": "personal-blog-nextjs",
   "description": "Personal blog rewritten in Next.js + Tailwind CSS",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "BSD-3-Clause",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/lucasadrianof/personal-blog-nextjs.git"
+  },
+  "author": {
+    "email": "hi@lucasfadriano.dev",
+    "name": "Lucas Felicio Adriano"
   },
   "scripts": {
     "dev": "next dev",
