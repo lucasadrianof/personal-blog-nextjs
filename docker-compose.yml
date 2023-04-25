@@ -5,29 +5,3 @@ services:
     command: npm run dev
     ports: 
       - "3000:3000"
-
-  commento:
-    image: caroga/commentoplusplus
-    ports:
-      - 8080:8080
-    depends_on:
-      - app
-      - db
-    environment:
-      COMMENTO_ORIGIN: http://localhost:8080
-      COMMENTO_PORT: 8080
-      COMMENTO_POSTGRES: postgres://postgres:postgres@db:5432/commento?sslmode=disable
-      COMMENTO_GZIP_STATIC: 'true'
-      # comment out this next line when first signing-up
-      COMMENTO_FORBID_NEW_OWNERS: 'true' 
-
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_DB: commento
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    expose:
-      - 5432
-    volumes:
-      - /var/lib/postgresql/data
