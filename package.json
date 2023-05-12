@@ -9,7 +9,7 @@
     "url": "https://github.com/lucasadrianof/personal-blog-nextjs.git"
   },
   "author": {
-    "email": "hi@lucasfadriano.dev",
+    "email": "lucas@lucasfadriano.dev",
     "name": "Lucas Felicio Adriano"
   },
   "scripts": {
@@ -60,6 +60,7 @@
     "postcss-viewport-height-correction": "^1.1.1",
     "prettier": "^2.8.3",
     "tailwindcss": "^3.2.4",
+    "turbo": "^1.9.4",
     "typescript": "^5.0.4"
   }
 }

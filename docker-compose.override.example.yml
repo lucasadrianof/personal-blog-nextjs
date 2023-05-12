@@ -4,4 +4,5 @@ services:
     volumes:
       - ./:/home/node/app
       - /home/node/app/.next/
+      - /home/node/app/.turbo/
       - /home/node/app/node_modules/
