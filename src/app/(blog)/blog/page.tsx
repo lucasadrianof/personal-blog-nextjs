@@ -14,8 +14,8 @@ export default async function Blog() {
 
   return (
     <div className="grow" data-aos="fade" data-aos-duration={300}>
-      <div className="mx-auto bg-gray-950 px-5 md:px-10 lg:container lg:rounded-2xl lg:px-20">
-        <div className="xs:pt-0 xs:pb-12 sm:py-12">
+      <div className="mx-auto bg-gray-950 px-5 lg:container md:px-10 lg:rounded-2xl lg:px-20">
+        <div className="xs:pb-12 xs:pt-0 sm:py-12">
           <h2 className="after-effect mt-12 after:left-24 xs:mt-6 lg:mt-0">
             Blog
           </h2>

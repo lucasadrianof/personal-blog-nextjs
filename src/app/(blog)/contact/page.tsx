@@ -4,10 +4,10 @@ import ContactBadges from '@/components/ContactBadges/ContactBadges'
 
 export default function About() {
   return (
-    <div className="bg-gray-950 px-4 sm:px-5 md:px-10 lg:container lg:rounded-2xl lg:px-20">
+    <div className="bg-gray-950 px-4 lg:container sm:px-5 md:px-10 lg:rounded-2xl lg:px-20">
       <div>
-        <div className="xs:pt-0 xs:pb-12 sm:py-12">
-          <h2 className="after-effect mt-12 mb-10 after:left-40 xs:mt-6 md:mt-0">
+        <div className="xs:pb-12 xs:pt-0 sm:py-12">
+          <h2 className="after-effect mb-10 mt-12 after:left-40 xs:mt-6 md:mt-0">
             Contact
           </h2>
           <div className="flex flex-col-reverse lg:flex-row">
