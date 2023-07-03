@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
+import CountryFlag from '@/components/CountryFlag/CountryFlag'
 import PersonalInfo from '@/components/PersonalInfo/PersonalInfo'
-import CountryFlag from '../CountryFlag/CountryFlag'
 
 const CountryList = () => (
   <>
