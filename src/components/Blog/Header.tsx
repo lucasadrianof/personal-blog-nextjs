@@ -17,7 +17,7 @@ export default function Header({
 }: HeaderProps) {
   return (
     <>
-      <h1 className="after-effect mt-12 mb-2 after:ml-2 xs:mt-6">{title}</h1>
+      <h1 className="after-effect mb-2 mt-12 after:ml-2 xs:mt-6">{title}</h1>
       <div className="mb-6 text-sm">
         <Date dateString={date} />
       </div>

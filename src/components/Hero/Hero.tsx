@@ -17,7 +17,7 @@ export default function Hero() {
         height={250}
         width={250}
       />
-      <h3 className="mt-6 mb-1 text-3xl font-semibold text-white">
+      <h3 className="mb-1 mt-6 text-3xl font-semibold text-white">
         Lucas Felicio Adriano
       </h3>
       <p className="mb-4 text-gray-500">

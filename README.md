@@ -16,6 +16,7 @@ The following tools and frameworks were used to develop the website:
 - [Commento++](https://github.com/souramoo/commentoplusplus)
 - [Date-fns](https://www.npmjs.com/package/date-fns)
 - [designstripe](https://designstripe.com/)
+- [Flaticon](https://www.flaticon.com/free-icons)
 - [Font Awesome](https://fontawesome.com/)
 - [GitHub Actions](https://github.com/features/actions)
 - [Logo](https://logo.com/)
