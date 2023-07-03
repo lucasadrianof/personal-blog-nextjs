@@ -1,6 +1,16 @@
 import Image from 'next/image'
 
 import PersonalInfo from '@/components/PersonalInfo/PersonalInfo'
+import CountryFlag from '../CountryFlag/CountryFlag'
+
+const CountryList = () => (
+  <>
+    <CountryFlag className="mr-1" country="Brazil" />
+    <CountryFlag className="mr-1" country="Portugal" />
+    <CountryFlag className="mr-1" country="Spain" />
+    <CountryFlag country="Argentina" />
+  </>
+)
 
 export default function WhoAmI() {
   return (
@@ -32,8 +42,9 @@ export default function WhoAmI() {
             Aside from work, I really like to travel and get to know different
             places and try different foods and beers. From time to time I also
             like to work from different countries, currently my list of visited
-            countries is four (🇧🇷🇵🇹🇪🇸🇦🇷), but I have plans on growing that list
-            as I&apos;m starting to embrace the digital nomad lifestyle.
+            countries is four (<CountryList />
+            ), but I have plans on growing that list as I&apos;m starting to
+            embrace the digital nomad lifestyle.
           </p>
         </div>
         <div>
