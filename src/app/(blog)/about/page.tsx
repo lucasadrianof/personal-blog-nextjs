@@ -1,5 +1,8 @@
 import Skills from '@/components/Skills/Skills'
 import WhoAmI from '@/components/WhoAmI/WhoAmI'
+import { generateMetadata } from '@/lib/generateMetadata'
+
+export const metadata = generateMetadata({ titlePrefix: 'About me' })
 
 export default function About() {
   return (

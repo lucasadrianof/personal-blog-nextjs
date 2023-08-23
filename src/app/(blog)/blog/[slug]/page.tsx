@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import Body from '@/components/Blog/Body'
@@ -6,11 +7,22 @@ import MorePosts from '@/components/Blog/MorePosts'
 import SectionSeparator from '@/components/Blog/SectionSeparator'
 import Tags from '@/components/Blog/Tags'
 import Commento from '@/components/Commento/Commento'
+import { generateMetadata as generateMetadataHelper } from '@/lib/generateMetadata'
 import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
 import type { Post } from '@/lib/sanity/types'
 
 type PageProps = {
   params: Pick<Post, 'slug'>
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: PageProps): Promise<Metadata> {
+  const post = await getPostBySlug(slug)
+
+  if (!post) notFound()
+
+  return generateMetadataHelper({ titlePrefix: post.title })
 }
 
 export default async function Page({ params: { slug } }: PageProps) {

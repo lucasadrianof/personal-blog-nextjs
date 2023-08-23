@@ -2,11 +2,14 @@ import { format, parseISO } from 'date-fns'
 
 import Date from '@/components/Blog/Date'
 import PostPreview from '@/components/Blog/PostPreview'
+import { generateMetadata } from '@/lib/generateMetadata'
 import { getAllPosts } from '@/lib/sanity/sanity.client'
 import type { Post } from '@/lib/sanity/types'
 
 type MonthYear = `${string}-${string}`
 type PostsByMonthYear = Record<MonthYear, Post[]>
+
+export const metadata = generateMetadata({ titlePrefix: 'Blog' })
 
 export default async function Blog() {
   const allPosts = await getAllPosts()
