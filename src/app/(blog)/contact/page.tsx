@@ -1,6 +1,9 @@
 import Image from 'next/image'
 
 import ContactBadges from '@/components/ContactBadges/ContactBadges'
+import { generateMetadata } from '@/lib/generateMetadata'
+
+export const metadata = generateMetadata({ titlePrefix: 'Contact' })
 
 export default function About() {
   return (
