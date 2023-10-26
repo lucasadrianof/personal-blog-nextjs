@@ -2,7 +2,7 @@ import { revalidatePath } from 'next/cache'
 import { NextRequest } from 'next/server'
 import { createClient, SanityClient } from 'next-sanity'
 import { parseBody } from 'next-sanity/webhook'
-import type { SanityDocument, SlugValue } from 'sanity'
+import type { SanityDocumentLike, SlugValue } from 'sanity'
 
 import { apiVersion, dataset, projectId } from '@/lib/sanity/sanity.api'
 import {
@@ -17,7 +17,7 @@ const { SANITY_REVALIDATE_SECRET, WEBHOOK_AUTHORIZATION_TOKEN } = process.env
 
 type StaleRoute = '/blog' | `/blog/${string}`
 
-interface StaleRouteBody extends Pick<SanityDocument, '_type' | '_id'> {
+interface StaleRouteBody extends SanityDocumentLike {
   date?: string
   slug?: SlugValue
 }
