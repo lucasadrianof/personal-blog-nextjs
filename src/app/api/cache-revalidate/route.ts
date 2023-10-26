@@ -1,4 +1,5 @@
-import { NextApiRequest, NextApiResponse } from 'next'
+import { revalidatePath } from 'next/cache'
+import { NextRequest } from 'next/server'
 import { createClient, SanityClient } from 'next-sanity'
 import { parseBody } from 'next-sanity/webhook'
 import type { SanityDocument, SlugValue } from 'sanity'
@@ -113,17 +114,15 @@ const queryNextPosts = async (
 
 export { config } from 'next-sanity/webhook'
 
-export default async function cacheRevalidate(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function POST(req: NextRequest) {
   try {
     if (
-      req.headers['authorization'] !== `Bearer ${WEBHOOK_AUTHORIZATION_TOKEN}`
+      req.headers.get('authorization') !==
+      `Bearer ${WEBHOOK_AUTHORIZATION_TOKEN}`
     ) {
       const message = 'Unauthorized'
       console.log(message)
-      return res.status(401).send(message)
+      return new Response(message, { status: 401 })
     }
 
     const { body, isValidSignature } = await parseBody(
@@ -134,27 +133,29 @@ export default async function cacheRevalidate(
     if (!isValidSignature) {
       const message = 'Invalid signature'
       console.log(message)
-      return res.status(401).send(message)
+      return new Response(message, { status: 401 })
     }
 
-    if (!body._id) {
+    if (!body || !body._id) {
       const message = 'Invalid _id'
       console.error(message, { body })
-      return res.status(400).send(message)
+      return new Response(message, { status: 400 })
     }
 
     const staleRoutes = await queryStaleRoutes(body)
-    await Promise.all(staleRoutes.map((route) => res.revalidate(route)))
+
+    staleRoutes.forEach((route) => revalidatePath(route))
 
     const message = `Revalidated routes: ${staleRoutes.join(', ')}`
     console.log(message)
-    return res.status(200).send(message)
+    return new Response(message)
   } catch (err) {
     console.error(err)
-    return res
-      .status(500)
-      .send(
-        'An unexpected error occured, please reach out to hi@lucasfadriano.dev if you see this!'
-      )
+    return new Response(
+      'An unexpected error occurred, please reach out to hi@lucasfadriano.dev if you see this!',
+      {
+        status: 500,
+      }
+    )
   }
 }
