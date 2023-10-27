@@ -5,13 +5,13 @@ WORKDIR /home/node/app
 
 COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm install --no-save
+RUN npm ci
 ENV PATH=$PATH:/home/node/app/node_modules/.bin
 
 COPY --chown=node:node . .
 
-RUN turbo build
+RUN npm run build
 
 EXPOSE 3000
 
-CMD [ "turbo", "start" ]
+CMD [ "npm", "run", "start" ]

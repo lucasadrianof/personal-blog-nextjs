@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: Run linters
-        run: npx turbo lint
+        run: npm run lint
 
       - name: Run TS check
         run: npx tsc --noEmit

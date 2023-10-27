@@ -4,10 +4,8 @@ const { SITE_URL } = process.env
 module.exports = {
   siteUrl: SITE_URL,
   generateRobotsTxt: true,
-  exclude: ["/blog/*", "/studio", "/sitemap-blog.xml"],
+  exclude: ['/blog/*', '/studio', '/sitemap-blog.xml'],
   robotsTxtOptions: {
-    additionalSitemaps: [
-      `${SITE_URL}/sitemap-blog.xml`
-    ]
-  }
+    additionalSitemaps: [`${SITE_URL}/sitemap-blog.xml`],
+  },
 }
