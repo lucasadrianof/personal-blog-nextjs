@@ -10,8 +10,6 @@ export const dynamic = 'force-dynamic'
 export async function GET() {
   const posts = await getAllPosts()
 
-  await getAllPosts()
-
   const fields: ISitemapField[] = posts.map(({ date, slug }) => ({
     loc: `${SITE_URL}/blog/${slug}`,
     lastmod: date,
