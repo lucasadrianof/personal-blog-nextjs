@@ -13,7 +13,7 @@
     "name": "Lucas Felicio Adriano"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
@@ -37,7 +37,8 @@
     "react-dom": "^18.2.0",
     "sanity": "^3.18.1",
     "server-only": "^0.0.1",
-    "sharp": "^0.32.6"
+    "sharp": "^0.32.6",
+    "turbo": "^1.10.16"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.5.6",
