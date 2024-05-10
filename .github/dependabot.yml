@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns:
+          - "*"
+
+  - package-ecosystem: npm
+    directory: /
+    open-pull-requests-limit: 10
+    schedule:
+      interval: monthly
+    groups:
+      dev-deps:
+        dependency-type: development
