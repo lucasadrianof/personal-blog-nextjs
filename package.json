@@ -37,7 +37,7 @@
     "react-dom": "^18.2.0",
     "sanity": "^3.18.1",
     "server-only": "^0.0.1",
-    "sharp": "^0.33.0",
+    "sharp": "^0.33.3",
     "turbo": "^1.10.16"
   },
   "devDependencies": {
