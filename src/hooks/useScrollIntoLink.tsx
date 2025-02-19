@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 type LinkRef = RefObject<HTMLAnchorElement>
 type ScrollIntoLink = () => void
 
-export default function useScrollIntoLink(): [LinkRef, ScrollIntoLink] {
+export default function useScrollIntoLink (): [LinkRef, ScrollIntoLink] {
   const ref = useRef<HTMLAnchorElement>(null)
 
   const scrollIntoLink = () => {

@@ -21,8 +21,8 @@ const personalInfo: PersonalInfo[] = [
     meta: (
       <>
         <a
-          className="transition duration-300 hover:text-brand-background-element"
-          href="mailto:hi@lucasfadriano.dev"
+          className='transition duration-300 hover:text-brand-background-element'
+          href='mailto:hi@lucasfadriano.dev'
         >
           hi@lucasfadriano.dev
         </a>
@@ -36,10 +36,10 @@ const personalInfo: PersonalInfo[] = [
     meta: (
       <>
         <a
-          className="transition duration-300 hover:text-brand-background-element"
-          href="https://www.linkedin.com/in/lucas-felicio-adriano/"
-          rel="noreferrer"
-          target="_blank"
+          className='transition duration-300 hover:text-brand-background-element'
+          href='https://www.linkedin.com/in/lucas-felicio-adriano/'
+          rel='noreferrer'
+          target='_blank'
         >
           Lucas Felicio Adriano
         </a>
@@ -59,10 +59,10 @@ const personalInfo: PersonalInfo[] = [
     meta: (
       <>
         <a
-          className="transition duration-300 hover:text-brand-background-element"
-          href="https://www.linkedin.com/company/x-team/"
-          rel="noreferrer"
-          target="_blank"
+          className='transition duration-300 hover:text-brand-background-element'
+          href='https://www.linkedin.com/company/x-team/'
+          rel='noreferrer'
+          target='_blank'
         >
           X-Team
         </a>

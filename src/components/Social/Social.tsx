@@ -3,16 +3,16 @@ import cn from 'classnames'
 
 import socialMedias from '@/components/Social/data'
 
-export default function Social() {
+export default function Social () {
   return (
     <>
       {socialMedias.map(({ href, icon, iconClass, label }, key) => (
         <a
           aria-label={label}
-          key={key}
           href={href}
-          target="_blank"
-          rel="noreferrer"
+          key={key}
+          rel='noreferrer'
+          target='_blank'
         >
           <span
             className={cn(

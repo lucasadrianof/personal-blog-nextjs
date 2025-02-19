@@ -13,7 +13,7 @@ interface PostNavigationLinkProps
   type: 'Previous' | 'Next'
 }
 
-export default function PostNavigationLink({
+export default function PostNavigationLink ({
   date,
   slug,
   title,
@@ -21,17 +21,17 @@ export default function PostNavigationLink({
 }: PostNavigationLinkProps) {
   return (
     <Link href={`/blog/${slug}`}>
-      <div className="flex items-center">
+      <div className='flex items-center'>
         {type === 'Previous' && (
-          <FontAwesomeIcon className="mr-2 text-white" icon={faChevronLeft} />
+          <FontAwesomeIcon className='mr-2 text-white' icon={faChevronLeft} />
         )}
-        <div className="flex flex-col">
-          <span className="text-sm text-gray-400">{type} Post</span>
-          <span className="text-lg font-bold text-white">{title}</span>
-          <Date className="text-xs" dateString={date} />
+        <div className='flex flex-col'>
+          <span className='text-sm text-gray-400'>{type} Post</span>
+          <span className='text-lg font-bold text-white'>{title}</span>
+          <Date className='text-xs' dateString={date} />
         </div>
         {type === 'Next' && (
-          <FontAwesomeIcon className="ml-2 text-white" icon={faChevronRight} />
+          <FontAwesomeIcon className='ml-2 text-white' icon={faChevronRight} />
         )}
       </div>
     </Link>

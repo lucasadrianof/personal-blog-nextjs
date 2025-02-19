@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
@@ -36,9 +36,9 @@ module.exports = {
       },
       keyframes: {
         title: {
-          '0%': { content: `"Software Engineer"` },
-          '50%': { content: `"Problem Solver"` },
-          '100%': { content: `"Beer Enthusiast"` },
+          '0%': { content: '"Software Engineer"' },
+          '50%': { content: '"Problem Solver"' },
+          '100%': { content: '"Beer Enthusiast"' },
         },
       },
       screens: {

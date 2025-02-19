@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function useViewportCorrection() {
+export default function useViewportCorrection () {
   const setViewportProperty = (doc: HTMLElement) => {
     let prevClientHeight: number
 

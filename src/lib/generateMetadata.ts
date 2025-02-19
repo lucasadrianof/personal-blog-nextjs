@@ -10,7 +10,7 @@ export const generateMetadata: GenerateMetadata = ({
   titlePrefix = '',
 } = {}) => ({
   title: `${titlePrefix ? `${titlePrefix} - ` : ''}Lucas Felicio Adriano`,
-  description: `Lucas' personal blog`,
+  description: 'Lucas\' personal blog',
   icons: {
     icon: '/favicon.ico',
   },

@@ -14,7 +14,7 @@ import useViewportCorrection from '@/hooks/useViewportCorrection'
 
 config.autoAddCss = false
 
-export default function RootLayout({
+export default function RootLayout ({
   children,
 }: {
   children: React.ReactNode
@@ -26,8 +26,8 @@ export default function RootLayout({
   }, [])
 
   return (
-    <html lang="en">
-      <body className="flex h-screen min-h-screen w-full flex-col bg-home bg-cover bg-fixed bg-center-center bg-no-repeat">
+    <html lang='en'>
+      <body className='flex h-screen min-h-screen w-full flex-col bg-home bg-cover bg-fixed bg-center-center bg-no-repeat'>
         <Header />
         {children}
         <Footer />

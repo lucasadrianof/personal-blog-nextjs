@@ -9,7 +9,7 @@ import MenuLink from '@/components/Header/MenuLink'
 import MenuToggleButton from '@/components/Header/MenuToggleButton'
 import useClickOutside from '@/hooks/useClickOutside'
 
-export default function Header() {
+export default function Header () {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const buttonRef = useRef(null)
@@ -26,12 +26,12 @@ export default function Header() {
   }, [clickedOutsideButton, clickedOutsideMenu, menuOpen])
 
   return (
-    <header className="flex h-24 w-full shrink-0 place-content-between items-center bg-black lg:container lg:bg-transparent">
-      <div className="flex grow items-center justify-between px-4">
-        <Link href="/">
-          <Image alt="logo.svg" src="/logo.svg" height={32} width={192} />
+    <header className='flex h-24 w-full shrink-0 place-content-between items-center bg-black lg:container lg:bg-transparent'>
+      <div className='flex grow items-center justify-between px-4'>
+        <Link href='/'>
+          <Image alt='logo.svg' height={32} src='/logo.svg' width={192} />
         </Link>
-        <div className="lg:hidden">
+        <div className='lg:hidden'>
           <MenuToggleButton
             onClick={toggleMenuOpen}
             open={menuOpen}
@@ -50,13 +50,13 @@ export default function Header() {
         >
           {menuData.map(({ href, icon, text }) => (
             <MenuLink
-              key={href}
-              icon={icon}
               href={href}
-              text={text}
+              icon={icon}
+              key={href}
               onClick={() => {
                 if (menuOpen) setMenuOpen(false)
               }}
+              text={text}
             />
           ))}
         </ul>

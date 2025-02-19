@@ -7,19 +7,19 @@ interface MenuToggleButtonProps {
   open: boolean
 }
 
-function MenuToggleButton(
+function MenuToggleButton (
   { onClick, open }: MenuToggleButtonProps,
   ref: LegacyRef<HTMLButtonElement>
 ) {
   return (
     <button
-      aria-label="Menu Button"
-      className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-background-element"
+      aria-label='Menu Button'
+      className='flex size-9 items-center justify-center rounded-full bg-brand-background-element'
       onClick={onClick}
       ref={ref}
     >
       <FontAwesomeIcon
-        className="text-2xl text-white"
+        className='text-2xl text-white'
         icon={open ? faClose : faBars}
       />
     </button>

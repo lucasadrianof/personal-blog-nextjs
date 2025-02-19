@@ -15,7 +15,7 @@ type PageProps = {
   params: Pick<Post, 'slug'>
 }
 
-export async function generateMetadata({
+export async function generateMetadata ({
   params: { slug },
 }: PageProps): Promise<Metadata> {
   const post = await getPostBySlug(slug)
@@ -25,13 +25,13 @@ export async function generateMetadata({
   return generateMetadataHelper({ titlePrefix: post.title })
 }
 
-export default async function Page({ params: { slug } }: PageProps) {
+export default async function Page ({ params: { slug } }: PageProps) {
   const { nextPost, previousPost, ...post } = await getPostBySlug(slug)
 
   if (!post) notFound()
 
   return (
-    <div className="flex flex-col">
+    <div className='flex flex-col'>
       <article>
         <Header
           author={post.author}
@@ -43,13 +43,13 @@ export default async function Page({ params: { slug } }: PageProps) {
         <Body content={post.content} />
       </article>
       <SectionSeparator />
-      {post.tags && <Tags className="self-end" tags={post.tags} />}
-      <MorePosts previousPost={previousPost} nextPost={nextPost} />
+      {post.tags && <Tags className='self-end' tags={post.tags} />}
+      <MorePosts nextPost={nextPost} previousPost={previousPost} />
       <Commento />
     </div>
   )
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams () {
   return await getAllPostsSlugs()
 }

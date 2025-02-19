@@ -41,8 +41,7 @@ const queryStaleRoutes = async (
   const { _id, _type } = body
 
   // When a post was deleted
-  if (_type === 'post' && !(await getPostById(client, _id)))
-    return await getStaleRoutesForDeletedPost(client, body)
+  if (_type === 'post' && !(await getPostById(client, _id))) { return await getStaleRoutesForDeletedPost(client, body) }
 
   switch (_type) {
     case 'post':
@@ -114,7 +113,7 @@ const queryNextPosts = async (
 
 export { config } from 'next-sanity/webhook'
 
-export async function POST(req: NextRequest) {
+export async function POST (req: NextRequest) {
   try {
     if (
       req.headers.get('authorization') !==

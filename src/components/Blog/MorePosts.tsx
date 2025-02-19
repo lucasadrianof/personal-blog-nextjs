@@ -8,7 +8,7 @@ interface MorePostsProps {
   previousPost?: Post
 }
 
-export default function MorePosts({ previousPost, nextPost }: MorePostsProps) {
+export default function MorePosts ({ previousPost, nextPost }: MorePostsProps) {
   return (
     <section>
       <div
@@ -20,20 +20,20 @@ export default function MorePosts({ previousPost, nextPost }: MorePostsProps) {
       >
         {previousPost && (
           <PostNavigationLink
-            key={previousPost.slug}
             date={previousPost.date}
+            key={previousPost.slug}
             slug={previousPost.slug}
             title={previousPost.title}
-            type="Previous"
+            type='Previous'
           />
         )}
         {nextPost && (
           <PostNavigationLink
-            key={nextPost.slug}
             date={nextPost.date}
+            key={nextPost.slug}
             slug={nextPost.slug}
             title={nextPost.title}
-            type="Next"
+            type='Next'
           />
         )}
       </div>
