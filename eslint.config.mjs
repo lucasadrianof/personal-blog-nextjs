@@ -1,20 +1,18 @@
 import eslint from '@eslint/js'
 import pluginNext from '@next/eslint-plugin-next'
-import importPlugin from 'eslint-plugin-import'
 import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tailwindcss from 'eslint-plugin-tailwindcss'
 import neostandard, { resolveIgnoresFromGitignore } from 'neostandard'
-import tseslint from 'typescript-eslint'
+import tseslint, { configs as typescriptConfigs } from 'typescript-eslint'
 
 const ignores = resolveIgnoresFromGitignore()
 
 export default tseslint.config(
   { ignores },
   eslint.configs.recommended,
-  tseslint.configs.recommended,
-  neostandard(),
-  importPlugin.flatConfigs.recommended,
+  typescriptConfigs.recommended,
+  neostandard({ ts: true }),
   {
     plugins: {
       '@next/next': pluginNext,
@@ -31,10 +29,7 @@ export default tseslint.config(
       'no-relative-import-paths': noRelativeImportPaths,
     },
     rules: {
-      'import/first': 'error',
-      'import/newline-after-import': 'error',
-      'import/no-duplicates': 'error',
-      'import/no-relative-packages': 'error',
+      '@stylistic/jsx-sort-props': 'error',
 
       'no-relative-import-paths/no-relative-import-paths': [
         'error',
@@ -49,5 +44,11 @@ export default tseslint.config(
       'tailwindcss/no-custom-classname': 'error',
       'tailwindcss/no-unnecessary-arbitrary-value': 'error',
     },
+    settings: {
+      'import/resolver': {
+        typescript: true,
+        node: true,
+      },
+    }
   }
 )
