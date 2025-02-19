@@ -43,12 +43,6 @@ export default tseslint.config(
       'tailwindcss/enforces-shorthand': 'error',
       'tailwindcss/no-custom-classname': 'error',
       'tailwindcss/no-unnecessary-arbitrary-value': 'error',
-    },
-    settings: {
-      'import/resolver': {
-        typescript: true,
-        node: true,
-      },
     }
   }
 )
