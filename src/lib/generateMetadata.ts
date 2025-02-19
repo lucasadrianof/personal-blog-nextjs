@@ -14,8 +14,4 @@ export const generateMetadata: GenerateMetadata = ({
   icons: {
     icon: '/favicon.ico',
   },
-  viewport: {
-    initialScale: 1,
-    width: 'device-width',
-  },
 })
