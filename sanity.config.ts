@@ -1,6 +1,8 @@
+'use client'
+
 import { visionTool } from '@sanity/vision'
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { type Config, defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
 
 import { apiVersion, dataset, projectId } from '@/lib/sanity/sanity.api'
 import authorSchema from '@/sanity/schemas/author'
@@ -9,7 +11,7 @@ import postSchema from '@/sanity/schemas/post'
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
 
-export default defineConfig({
+export default defineConfig<Config>({
   basePath: '/studio',
   projectId,
   dataset,
@@ -17,5 +19,8 @@ export default defineConfig({
   schema: {
     types: [authorSchema, postSchema],
   },
-  plugins: [deskTool(), visionTool({ defaultApiVersion: apiVersion })],
+  plugins: [
+    structureTool(),
+    visionTool({ defaultApiVersion: apiVersion }),
+  ],
 })

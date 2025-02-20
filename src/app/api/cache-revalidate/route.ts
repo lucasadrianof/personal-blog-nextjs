@@ -1,3 +1,4 @@
+import { type PageConfig } from 'next'
 import { revalidatePath } from 'next/cache'
 import { NextRequest } from 'next/server'
 import { createClient, SanityClient } from 'next-sanity'
@@ -111,7 +112,12 @@ const queryNextPosts = async (
   return postSlugs
 }
 
-export { config } from 'next-sanity/webhook'
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+  runtime: 'nodejs',
+} satisfies PageConfig
 
 export async function POST (req: NextRequest) {
   try {

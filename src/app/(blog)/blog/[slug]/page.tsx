@@ -12,7 +12,7 @@ import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
 import type { Post } from '@/lib/sanity/types'
 
 type PageProps = {
-  params: Pick<Post, 'slug'>
+  params: Promise<Pick<Post, 'slug'>>
 }
 
 export async function generateMetadata (props: PageProps): Promise<Metadata> {
