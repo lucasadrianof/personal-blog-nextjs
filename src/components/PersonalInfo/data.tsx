@@ -1,10 +1,7 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
-import {
-  faBuilding,
-  faEnvelopeOpenText,
-  faGraduationCap,
-} from '@fortawesome/free-solid-svg-icons'
+import { faBuilding, faEnvelopeOpenText, faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+import type { JSX } from 'react'
 
 type PersonalInfo = {
   icon: IconProp

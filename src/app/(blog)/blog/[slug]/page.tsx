@@ -15,9 +15,8 @@ type PageProps = {
   params: Pick<Post, 'slug'>
 }
 
-export async function generateMetadata ({
-  params: { slug },
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata (props: PageProps): Promise<Metadata> {
+  const { slug } = await props.params
   const post = await getPostBySlug(slug)
 
   if (!post) notFound()
@@ -25,7 +24,8 @@ export async function generateMetadata ({
   return generateMetadataHelper({ titlePrefix: post.title })
 }
 
-export default async function Page ({ params: { slug } }: PageProps) {
+export default async function Page (props: PageProps) {
+  const { slug } = await props.params
   const { nextPost, previousPost, ...post } = await getPostBySlug(slug)
 
   if (!post) notFound()

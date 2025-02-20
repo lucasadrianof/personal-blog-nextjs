@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from 'react'
 
-export default function useClickOutside (ref: RefObject<HTMLElement>) {
+export default function useClickOutside (ref: RefObject<HTMLElement | null>) {
   const [clickOutside, setClickOutside] = useState(false)
 
   useEffect(() => {
