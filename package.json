@@ -14,10 +14,11 @@
   },
   "scripts": {
     "build": "next build",
+    "build:check": "tsc --noEmit",
     "postbuild": "next-sitemap",
     "dev": "next dev --turbo",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "start": "next start"
   },
   "dependencies": {
