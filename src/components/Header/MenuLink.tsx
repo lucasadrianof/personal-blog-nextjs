@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import cn from 'classnames'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEventHandler } from 'react'
 
 import { MenuItem } from '@/components/Header/data'
+import { cn } from '@/utils/cn'
 
 interface MenuItemLink extends MenuItem {
   onClick: MouseEventHandler<HTMLAnchorElement>

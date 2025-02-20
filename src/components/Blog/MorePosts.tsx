@@ -1,7 +1,6 @@
-import cn from 'classnames'
-
 import PostNavigationLink from '@/components/Blog/PostNavigationLink'
 import type { Post } from '@/lib/sanity/types'
+import { cn } from '@/utils/cn'
 
 interface MorePostsProps {
   nextPost?: Post

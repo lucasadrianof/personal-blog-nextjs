@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import cn from 'classnames'
 
 import skills from '@/components/Skills/data'
+import { cn } from '@/utils/cn'
 
 export default function Skills () {
   return (

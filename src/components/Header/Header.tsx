@@ -32,11 +32,7 @@ export default function Header () {
           <Image alt='logo.svg' height={32} src='/logo.svg' width={192} />
         </Link>
         <div className='lg:hidden'>
-          <MenuToggleButton
-            onClick={toggleMenuOpen}
-            open={menuOpen}
-            ref={buttonRef}
-          />
+          <MenuToggleButton onClick={toggleMenuOpen} open={menuOpen} ref={buttonRef} />
         </div>
       </div>
       <nav className={`${menuOpen ? 'block bg-black' : 'hidden lg:block'}`}>

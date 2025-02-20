@@ -31,7 +31,7 @@
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.18.1",
     "aos": "^3.0.0-beta.6",
-    "classnames": "^2.3.2",
+    "clsx": "^2.1.1",
     "date-fns": "^2.29.3",
     "next": "^14.2.24",
     "next-sanity": "^5.5.8",
@@ -41,6 +41,7 @@
     "sanity": "^3.18.1",
     "server-only": "^0.0.1",
     "sharp": "^0.33.3",
+    "tailwind-merge": "^3.0.1",
     "turbo": "^1.10.16"
   },
   "devDependencies": {

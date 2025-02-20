@@ -9,6 +9,19 @@ import type { Post } from '@/lib/sanity/types'
 type MonthYear = `${string}-${string}`
 type PostsByMonthYear = Record<MonthYear, Post[]>
 
+const groupPostsByMonth = (posts: Post[]) =>
+  posts.reduce((acc: PostsByMonthYear, post) => {
+    const monthYear = format(parseISO(post.date), 'MM-yyyy') as MonthYear
+
+    if (monthYear in acc) {
+      acc[monthYear].push(post)
+    } else {
+      acc[monthYear] = [post]
+    }
+
+    return acc
+  }, {})
+
 export const metadata = generateMetadata({ titlePrefix: 'Blog' })
 
 export default async function Blog () {
@@ -55,16 +68,3 @@ export default async function Blog () {
     </div>
   )
 }
-
-const groupPostsByMonth = (posts: Post[]) =>
-  posts.reduce((acc: PostsByMonthYear, post) => {
-    const monthYear = format(parseISO(post.date), 'MM-yyyy') as MonthYear
-
-    if (monthYear in acc) {
-      acc[monthYear].push(post)
-    } else {
-      acc[monthYear] = [post]
-    }
-
-    return acc
-  }, {})

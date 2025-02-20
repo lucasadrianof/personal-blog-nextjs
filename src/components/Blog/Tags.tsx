@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import { cn } from '@/utils/cn'
 
 interface TagsProps {
   className?: string
