@@ -38,6 +38,7 @@
     "next": "15.1.7",
     "next-sanity": "^9.8.59",
     "next-sitemap": "^4.2.3",
+    "posthog-js": "^1.222.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sanity": "^3.76.2",

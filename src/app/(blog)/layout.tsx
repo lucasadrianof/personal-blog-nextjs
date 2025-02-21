@@ -7,6 +7,8 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import { AOSInit } from '@/components/AOS/AOSInit'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import SuspendedPostHogPageView from '@/components/PostHog/PostHogPageView'
+import { PostHogProvider } from '@/components/PostHog/PostHogProvider'
 import ViewportCorrection from '@/components/ViewportCorrection/ViewportCorrection'
 
 config.autoAddCss = false
@@ -19,11 +21,14 @@ export default function RootLayout ({
   return (
     <html lang='en'>
       <body className='flex h-screen min-h-screen w-full flex-col bg-home bg-cover bg-fixed bg-center-center bg-no-repeat'>
-        <AOSInit />
-        <ViewportCorrection />
-        <Header />
-        {children}
-        <Footer />
+        <PostHogProvider>
+          <SuspendedPostHogPageView />
+          <AOSInit />
+          <ViewportCorrection />
+          <Header />
+          {children}
+          <Footer />
+        </PostHogProvider>
       </body>
     </html>
   )
