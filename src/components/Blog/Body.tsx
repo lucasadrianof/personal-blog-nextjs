@@ -29,9 +29,9 @@ const components: PortableTextComponents = {
   },
 }
 
-export default function Body({ content }: BodyProps) {
+export default function Body ({ content }: BodyProps) {
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className='mx-auto max-w-2xl'>
       <PortableText components={components} value={content} />
     </div>
   )

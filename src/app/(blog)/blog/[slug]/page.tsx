@@ -12,12 +12,11 @@ import { getAllPostsSlugs, getPostBySlug } from '@/lib/sanity/sanity.client'
 import type { Post } from '@/lib/sanity/types'
 
 type PageProps = {
-  params: Pick<Post, 'slug'>
+  params: Promise<Pick<Post, 'slug'>>
 }
 
-export async function generateMetadata({
-  params: { slug },
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata (props: PageProps): Promise<Metadata> {
+  const { slug } = await props.params
   const post = await getPostBySlug(slug)
 
   if (!post) notFound()
@@ -25,13 +24,14 @@ export async function generateMetadata({
   return generateMetadataHelper({ titlePrefix: post.title })
 }
 
-export default async function Page({ params: { slug } }: PageProps) {
+export default async function Page (props: PageProps) {
+  const { slug } = await props.params
   const { nextPost, previousPost, ...post } = await getPostBySlug(slug)
 
   if (!post) notFound()
 
   return (
-    <div className="flex flex-col">
+    <div className='flex flex-col'>
       <article>
         <Header
           author={post.author}
@@ -43,13 +43,13 @@ export default async function Page({ params: { slug } }: PageProps) {
         <Body content={post.content} />
       </article>
       <SectionSeparator />
-      {post.tags && <Tags className="self-end" tags={post.tags} />}
-      <MorePosts previousPost={previousPost} nextPost={nextPost} />
+      {post.tags && <Tags className='self-end' tags={post.tags} />}
+      <MorePosts nextPost={nextPost} previousPost={previousPost} />
       <Commento />
     </div>
   )
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams () {
   return await getAllPostsSlugs()
 }

@@ -1,7 +1,0 @@
-version: '3'
-services:
-  app:
-    volumes:
-      - ./:/home/node/app
-      - /home/node/app/.next/
-      - /home/node/app/node_modules/

@@ -1,10 +1,10 @@
 import type { RefObject } from 'react'
 import { useEffect, useRef } from 'react'
 
-type LinkRef = RefObject<HTMLAnchorElement>
+type LinkRef = RefObject<HTMLAnchorElement | null>
 type ScrollIntoLink = () => void
 
-export default function useScrollIntoLink(): [LinkRef, ScrollIntoLink] {
+export default function useScrollIntoLink (): [LinkRef, ScrollIntoLink] {
   const ref = useRef<HTMLAnchorElement>(null)
 
   const scrollIntoLink = () => {

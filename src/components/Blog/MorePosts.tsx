@@ -1,14 +1,13 @@
-import cn from 'classnames'
-
 import PostNavigationLink from '@/components/Blog/PostNavigationLink'
 import type { Post } from '@/lib/sanity/types'
+import { cn } from '@/utils/cn'
 
 interface MorePostsProps {
   nextPost?: Post
   previousPost?: Post
 }
 
-export default function MorePosts({ previousPost, nextPost }: MorePostsProps) {
+export default function MorePosts ({ previousPost, nextPost }: MorePostsProps) {
   return (
     <section>
       <div
@@ -20,20 +19,20 @@ export default function MorePosts({ previousPost, nextPost }: MorePostsProps) {
       >
         {previousPost && (
           <PostNavigationLink
-            key={previousPost.slug}
             date={previousPost.date}
+            key={previousPost.slug}
             slug={previousPost.slug}
             title={previousPost.title}
-            type="Previous"
+            type='Previous'
           />
         )}
         {nextPost && (
           <PostNavigationLink
-            key={nextPost.slug}
             date={nextPost.date}
+            key={nextPost.slug}
             slug={nextPost.slug}
             title={nextPost.title}
-            type="Next"
+            type='Next'
           />
         )}
       </div>

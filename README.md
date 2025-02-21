@@ -23,6 +23,7 @@ The following tools and frameworks were used to develop the website:
 - [Next.js](https://nextjs.org/)
 - [Next.js Sitemap](https://github.com/iamvishnusankar/next-sitemap)
 - [Portable Text](https://github.com/portabletext/portabletext)
+- [PostHog](https://posthog.com/)
 - [React PortableText](https://github.com/portabletext/react-portabletext)
 - [Sanity CMS](https://www.sanity.io/)
 - [Tailwind CSS](https://tailwindcss.com/)

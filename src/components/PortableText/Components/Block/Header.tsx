@@ -26,20 +26,20 @@ const Header: PortableTextBlockComponent = ({ children, value }) => {
 
   return (
     <a href={`#${slug}`} onClick={scrollIntoLink} ref={ref}>
-      <FontAwesomeIcon className="pr-1 text-sm" icon={faHashtag} />
+      <FontAwesomeIcon className='pr-1 text-sm' icon={faHashtag} />
       {children}
     </a>
   )
 }
 
 export const H4Header: PortableTextBlockComponent = ({ ...props }) => (
-  <h4 className="mt-6 cursor-pointer font-bold text-white">
+  <h4 className='mt-6 cursor-pointer font-bold text-white'>
     <Header {...props} />
   </h4>
 )
 
 export const H5Header: PortableTextBlockComponent = ({ ...props }) => (
-  <h5 className="mt-6 cursor-pointer font-bold text-white">
+  <h5 className='mt-6 cursor-pointer font-bold text-white'>
     <Header {...props} />
   </h5>
 )

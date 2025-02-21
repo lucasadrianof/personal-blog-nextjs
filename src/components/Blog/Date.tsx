@@ -5,7 +5,7 @@ interface DateProps {
   dateString: string
 }
 
-export default function Date({ className, dateString }: DateProps) {
+export default function Date ({ className, dateString }: DateProps) {
   const date = parseISO(dateString)
 
   return (

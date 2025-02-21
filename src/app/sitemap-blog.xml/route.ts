@@ -7,7 +7,7 @@ const { SITE_URL } = process.env
 
 export const dynamic = 'force-dynamic'
 
-export async function GET() {
+export async function GET () {
   const posts = await getAllPosts()
 
   const fields: ISitemapField[] = posts.map(({ date, slug }) => ({

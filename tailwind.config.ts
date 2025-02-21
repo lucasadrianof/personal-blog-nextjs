@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const defaultTheme = require('tailwindcss/defaultTheme')
+import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     './src/app/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -36,9 +35,9 @@ module.exports = {
       },
       keyframes: {
         title: {
-          '0%': { content: `"Software Engineer"` },
-          '50%': { content: `"Problem Solver"` },
-          '100%': { content: `"Beer Enthusiast"` },
+          '0%': { content: '"Software Engineer"' },
+          '50%': { content: '"Problem Solver"' },
+          '100%': { content: '"Beer Enthusiast"' },
         },
       },
       screens: {
@@ -48,4 +47,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+} satisfies Config

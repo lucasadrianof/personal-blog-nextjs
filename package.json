@@ -1,67 +1,79 @@
 {
   "name": "personal-blog-nextjs",
-  "description": "Personal blog rewritten in Next.js + Tailwind CSS",
   "version": "1.0.0",
-  "license": "BSD-3-Clause",
   "private": true,
+  "description": "Personal blog rewritten in Next.js + Tailwind CSS",
   "repository": {
     "type": "git",
     "url": "https://github.com/lucasadrianof/personal-blog-nextjs.git"
   },
+  "license": "BSD-3-Clause",
   "author": {
-    "email": "lucas@lucasfadriano.dev",
-    "name": "Lucas Felicio Adriano"
+    "name": "Lucas Felicio Adriano",
+    "email": "lucas@lucasfadriano.dev"
   },
   "scripts": {
-    "dev": "next dev --turbo",
     "build": "next build",
+    "build:check": "tsc --noEmit",
     "postbuild": "next-sitemap",
-    "start": "next start",
+    "dev": "next dev --turbopack",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "start": "next start"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@fortawesome/free-brands-svg-icons": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@portabletext/react": "^2.0.1",
-    "@sanity/vision": "^3.18.1",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@next/env": "15.1.7",
+    "@portabletext/react": "^3.2.1",
+    "@sanity/icons": "^3.6.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.76.2",
+    "@sanity/webhook": "^4.0.4",
     "aos": "^3.0.0-beta.6",
-    "classnames": "^2.3.2",
+    "clsx": "^2.1.1",
     "date-fns": "^2.29.3",
-    "next": "^13.5.6",
-    "next-sanity": "^5.5.8",
+    "next": "15.1.7",
+    "next-sanity": "^9.8.59",
     "next-sitemap": "^4.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sanity": "^3.18.1",
+    "posthog-js": "^1.222.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "sanity": "^3.76.2",
     "server-only": "^0.0.1",
-    "sharp": "^0.33.3",
-    "turbo": "^1.10.16"
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^13.5.6",
-    "@types/aos": "^3.0.4",
-    "@types/node": "18.16.6",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0",
-    "autoprefixer": "^10.4.13",
-    "eslint": "^8.32.0",
-    "eslint-config-next": "^13.5.6",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-import-resolver-typescript": "^3.5.3",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-no-relative-import-paths": "^1.5.2",
-    "eslint-plugin-prettier": "^4.2.1",
+    "@eslint/js": "^9.20.0",
+    "@next/bundle-analyzer": "15.1.7",
+    "@next/eslint-plugin-next": "15.1.7",
+    "@types/aos": "^3.0.7",
+    "@types/node": "20.17.19",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.20.1",
+    "eslint-config-next": "15.1.7",
+    "eslint-plugin-no-relative-import-paths": "^1.6.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-tailwindcss": "^3.10.1",
-    "postcss": "^8.4.31",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "neostandard": "^0.12.1",
+    "postcss": "^8.5.3",
     "postcss-viewport-height-correction": "^1.1.1",
-    "prettier": "^2.8.3",
-    "tailwindcss": "^3.2.4",
-    "typescript": "^5.2.2"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
+  },
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.10",
+      "@types/react-dom": "19.0.4"
+    }
   }
 }
