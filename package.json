@@ -34,7 +34,7 @@
     "@sanity/webhook": "^4.0.4",
     "aos": "^3.0.0-beta.6",
     "clsx": "^2.1.1",
-    "date-fns": "^2.29.3",
+    "date-fns": "^4.1.0",
     "next": "15.1.7",
     "next-sanity": "^9.8.59",
     "next-sitemap": "^4.2.3",
