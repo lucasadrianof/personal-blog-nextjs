@@ -740,6 +740,9 @@ packages:
   '@codemirror/lint@6.8.4':
     resolution: {integrity: sha512-u4q7PnZlJUojeRe8FJa/njJcMctISGgPQ4PnWsd9268R4ZTtU+tfFYmwkBvgcrK2+QQ8tYFVALVb5fVJykKc5A==}
 
+  '@codemirror/search@6.5.10':
+    resolution: {integrity: sha512-RMdPdmsrUf53pb2VwflKGHEe1XVM07hI7vV2ntgw1dmqhimpatSJKva4VA9h4TLUDOD4EIF02201oZurpnEFsg==}
+
   '@codemirror/search@6.5.9':
     resolution: {integrity: sha512-7DdQ9aaZMMxuWB1u6IIFWWuK9NocVZwvo4nG8QjJTS6oZGvteoLSiXw3EbVZVlO08Ri2ltO89JVInMpfcJxhtg==}
 
@@ -751,6 +754,9 @@ packages:
 
   '@codemirror/view@6.36.3':
     resolution: {integrity: sha512-N2bilM47QWC8Hnx0rMdDxO2x2ImJ1FvZWXubwKgjeoOrWwEiFrtpA7SFHcuZ+o2Ze2VzbkgbzWVj4+V18LVkeg==}
+
+  '@codemirror/view@6.36.4':
+    resolution: {integrity: sha512-ZQ0V5ovw/miKEXTvjgzRyjnrk9TwriUB1k4R5p7uNnHR9Hus+D1SXHGdJshijEzPFjU25xea/7nhIeSqYFKdbA==}
 
   '@corex/deepmerge@4.0.43':
     resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
@@ -5060,6 +5066,7 @@ packages:
   sanity@3.76.2:
     resolution: {integrity: sha512-LSB2ZvsVqWTxai1ZB7qiK5Hn070DvU7CKZVMYvrhUOmn15WZNzdQ+dKLT75C0ib5SvEWAKpxrks8+kcdQQhgtA==}
     engines: {node: '>=18'}
+    deprecated: This version is using an experimental version of the Sanity HTTP API and we strongly recommend upgrading to latest
     hasBin: true
     peerDependencies:
       react: ^18 || ^19.0.0
@@ -6754,6 +6761,12 @@ snapshots:
       '@codemirror/view': 6.36.3
       crelt: 1.0.6
 
+  '@codemirror/search@6.5.10':
+    dependencies:
+      '@codemirror/state': 6.5.2
+      '@codemirror/view': 6.36.4
+      crelt: 1.0.6
+
   '@codemirror/search@6.5.9':
     dependencies:
       '@codemirror/state': 6.5.2
@@ -6768,10 +6781,16 @@ snapshots:
     dependencies:
       '@codemirror/language': 6.10.8
       '@codemirror/state': 6.5.2
-      '@codemirror/view': 6.36.3
+      '@codemirror/view': 6.36.4
       '@lezer/highlight': 1.2.1
 
   '@codemirror/view@6.36.3':
+    dependencies:
+      '@codemirror/state': 6.5.2
+      style-mod: 4.1.2
+      w3c-keyname: 2.2.8
+
+  '@codemirror/view@6.36.4':
     dependencies:
       '@codemirror/state': 6.5.2
       style-mod: 4.1.2
@@ -8825,9 +8844,9 @@ snapshots:
       '@codemirror/commands': 6.8.0
       '@codemirror/language': 6.10.8
       '@codemirror/lint': 6.8.4
-      '@codemirror/search': 6.5.9
+      '@codemirror/search': 6.5.10
       '@codemirror/state': 6.5.2
-      '@codemirror/view': 6.36.3
+      '@codemirror/view': 6.36.4
 
   color-convert@1.9.3:
     dependencies:
