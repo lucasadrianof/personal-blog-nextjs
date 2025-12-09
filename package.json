@@ -27,7 +27,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@next/env": "15.1.7",
-    "@portabletext/react": "^3.2.1",
+    "@portabletext/react": "^4.0.2",
     "@sanity/icons": "^3.6.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.76.2",
